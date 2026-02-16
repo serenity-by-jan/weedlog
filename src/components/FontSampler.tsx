@@ -65,7 +65,7 @@ function getTokensByPrefix(prefix: string): TokenRow[] {
             const prop = rule.style[i];
             if (!prop.startsWith(`--${prefix}`)) continue;
             // skip typography composites (they expand to individual props)
-            if (prefix !== 'typography-' && prop.startsWith('--typography-')) continue;
+            if (prefix !== 'weedlog-typography-' && prop.startsWith('--weedlog-typography-')) continue;
             tokens.push({ name: prop, value: style.getPropertyValue(prop).trim() });
           }
         }
@@ -86,9 +86,9 @@ function getColorTokensGrouped(): Record<string, ColorToken[]> {
         if (rule instanceof CSSStyleRule && rule.selectorText === ':root') {
           for (let i = 0; i < rule.style.length; i++) {
             const prop = rule.style[i];
-            if (!prop.startsWith('--color-')) continue;
+            if (!prop.startsWith('--weedlog-color-')) continue;
             const value = style.getPropertyValue(prop).trim();
-            const parts = prop.slice(8).split('-'); // after --color-
+            const parts = prop.slice(16).split('-'); // after --weedlog-color-
             const group = parts[0];
             if (!groups[group]) groups[group] = [];
             groups[group].push({ name: prop, value });
@@ -178,7 +178,7 @@ function ColorsSection() {
 }
 
 function SpacingSection() {
-  const tokens = getTokensByPrefix('spacing-');
+  const tokens = getTokensByPrefix('weedlog-spacing-');
   return (
     <section id="spacing" className="dr-section">
       <h2 className="dr-section-title">Spacing</h2>
@@ -197,7 +197,7 @@ function SpacingSection() {
 }
 
 function RadiusSection() {
-  const tokens = getTokensByPrefix('radius-');
+  const tokens = getTokensByPrefix('weedlog-radius-');
   return (
     <section id="radius" className="dr-section">
       <h2 className="dr-section-title">Radius</h2>
@@ -216,7 +216,7 @@ function RadiusSection() {
 }
 
 function BordersSection() {
-  const tokens = getTokensByPrefix('border-width-');
+  const tokens = getTokensByPrefix('weedlog-border-width-');
   return (
     <section id="borders" className="dr-section">
       <h2 className="dr-section-title">Borders</h2>
@@ -235,7 +235,7 @@ function BordersSection() {
 }
 
 function ShadowsSection() {
-  const tokens = getTokensByPrefix('shadow-');
+  const tokens = getTokensByPrefix('weedlog-shadow-');
   return (
     <section id="shadows" className="dr-section">
       <h2 className="dr-section-title">Shadows</h2>
@@ -253,7 +253,7 @@ function ShadowsSection() {
 }
 
 function ContainersSection() {
-  const tokens = getTokensByPrefix('container-');
+  const tokens = getTokensByPrefix('weedlog-container-');
   const maxVal = 1200; // xl container
   return (
     <section id="containers" className="dr-section">
@@ -277,7 +277,7 @@ function ContainersSection() {
 }
 
 function TransitionsSection() {
-  const tokens = getTokensByPrefix('transition-');
+  const tokens = getTokensByPrefix('weedlog-transition-');
   return (
     <section id="transitions" className="dr-section">
       <h2 className="dr-section-title">Transitions</h2>
@@ -299,7 +299,7 @@ function TransitionsSection() {
 }
 
 function ZIndexSection() {
-  const tokens = getTokensByPrefix('z-');
+  const tokens = getTokensByPrefix('weedlog-z-');
   return (
     <section id="z-index" className="dr-section">
       <h2 className="dr-section-title">Z-Index</h2>
@@ -308,7 +308,7 @@ function ZIndexSection() {
         {tokens.map((t) => (
           <div key={t.name} className="dr-z-pill">
             <span className="dr-z-value">{t.value}</span>
-            <span className="dr-z-label">{t.name.slice(4)}</span>
+            <span className="dr-z-label">{t.name.slice(12)}</span>
           </div>
         ))}
       </div>

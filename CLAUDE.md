@@ -27,7 +27,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Architecture
 
-- `tokens/tokens.json` — single-file design token source (all colors, spacing, typography, shape, effects)
+- `tokens/tokens.json` — single-file DTCG design token source; all tokens live under the top-level `weedlog` namespace. Composite types (`typography`, `shadow`, `transition`) use structured `$value` objects per the DTCG spec.
 - `tokens/build.mjs` — Style Dictionary build script
 - `src/tokens.css` — **auto-generated** CSS custom properties (do not edit directly — edit `tokens/*.json` and run `npm run tokens:build`)
 - `src/components/` — React components, each with a co-located `.css` file
@@ -43,10 +43,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Styling Conventions
 
 - **All visual CSS values must reference tokens from `src/tokens.css`** — no hardcoded colors, spacing, font sizes, radii, or border widths in component stylesheets. Only structural CSS values (e.g. `flex`, `100%`, `0`, `none`, `1`) remain as literals.
-- **Focus states:** Implement focus rings using `outline` + `outline-offset`, not pseudo-elements or extra DOM nodes. Use `var(--border-width-3)` for outline width, `var(--color-focus)` for color, and `var(--focus-outline-offset)` for offset. Apply only on `:focus-visible`. Include a subtle pulse animation on the outline color.
+- **Focus states:** Implement focus rings using `outline` + `outline-offset`, not pseudo-elements or extra DOM nodes. Use `var(--weedlog-border-width-thick)` for outline width, `var(--weedlog-color-interactive-focus)` for color, and `var(--weedlog-focus-outline-offset)` for offset. Apply only on `:focus-visible`. Include a subtle pulse animation on the outline color.
 
 ## Design Token Workflow
 
 1. Edit `tokens/tokens.json`
 2. Run `npm run tokens:build` to regenerate `src/tokens.css`
-3. The JSON files are the source of truth — compatible with Figma Tokens plugin and Style Dictionary ecosystem
+3. All generated CSS custom properties are namespaced as `--weedlog-*` (e.g. `--weedlog-color-brand-primary`, `--weedlog-spacing-4`)
