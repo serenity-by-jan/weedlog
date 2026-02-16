@@ -33,38 +33,6 @@
   line-height: var(--font-line-height-normal);
 }
 
-/* ---- Icon gallery ---- */
-
-.icon-gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
-  gap: var(--spacing-3);
-  margin-bottom: var(--spacing-8);
-}
-
-.icon-card {
-  background: var(--color-bg-secondary);
-  border: var(--border-width-thin) solid var(--color-border-default);
-  border-radius: var(--radius-md);
-  padding: var(--spacing-3);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--spacing-1);
-}
-
-.icon-card img {
-  width: 72px;
-  height: 72px;
-}
-
-.icon-card .icon-label {
-  font-size: 11px;
-  color: var(--color-text-secondary);
-  text-align: center;
-  font-family: var(--font-family-mono);
-}
-
 /* ---- Token reference ---- */
 
 .token-reference {

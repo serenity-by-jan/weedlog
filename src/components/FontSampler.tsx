@@ -1,23 +1,5 @@
 import './FontSampler.css';
 
-import logoThick01 from '../assets/logo-thick-01.svg';
-import logoThick02 from '../assets/logo-thick-02.svg';
-import logoThick03 from '../assets/logo-thick-03.svg';
-import logoThick04 from '../assets/logo-thick-04.svg';
-import logoThick05 from '../assets/logo-thick-05.svg';
-import logoThick06 from '../assets/logo-thick-06.svg';
-import logoThick07 from '../assets/logo-thick-07.svg';
-
-const LOGOS = [
-  { src: logoThick01, label: 'stroke 12' },
-  { src: logoThick02, label: 'stroke 14' },
-  { src: logoThick03, label: 'stroke 16' },
-  { src: logoThick04, label: 'stroke 18' },
-  { src: logoThick05, label: 'stroke 20' },
-  { src: logoThick06, label: 'stroke 22' },
-  { src: logoThick07, label: 'stroke 24' },
-];
-
 interface TokenRow {
   name: string;
   value: string;
@@ -153,19 +135,6 @@ export default function FontSampler() {
   return (
     <div className="sampler">
       <h1>Weedlog Design Reference</h1>
-
-      <h2>Logo — Tilted Asterisk — Thickness</h2>
-      <p className="section-note">
-        Same tilted 5-arm asterisk. Pick a weight.
-      </p>
-      <div className="icon-gallery">
-        {LOGOS.map((logo) => (
-          <div className="icon-card" key={logo.label}>
-            <img src={logo.src} alt={logo.label} />
-            <span className="icon-label">{logo.label}</span>
-          </div>
-        ))}
-      </div>
 
       <h2>Design Tokens</h2>
       <TokenReference />
