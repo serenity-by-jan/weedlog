@@ -27,10 +27,11 @@ const typographyStyles: TypographyStyle[] = [
   { name: 'emphasis-lg', description: 'Key data, strong callouts at large body scale', fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: '18px', fontWeight: 600, lineHeight: 1.5, letterSpacing: '0em' },
   { name: 'emphasis', description: 'Inline importance, key values', fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: '16px', fontWeight: 600, lineHeight: 1.5, letterSpacing: '0em' },
   { name: 'emphasis-sm', description: 'Small emphasized text', fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: '14px', fontWeight: 600, lineHeight: 1.5, letterSpacing: '0em' },
-  { name: 'label', description: 'Buttons, nav items, form labels', fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: '14px', fontWeight: 600, lineHeight: 1.2, letterSpacing: '0em' },
-  { name: 'label-sm', description: 'Badges, tags, small interactive text', fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: '12px', fontWeight: 600, lineHeight: 1.2, letterSpacing: '0em' },
+  { name: 'label', description: 'Buttons, nav items, form labels', fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: '14px', fontWeight: 600, lineHeight: 1, letterSpacing: '0em' },
+  { name: 'label-sm', description: 'Badges, tags, small interactive text (semibold)', fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: '12px', fontWeight: 600, lineHeight: 1, letterSpacing: '0em' },
+  { name: 'tag', description: 'Tag/pill/chip text — regular weight UI label, never wraps', fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: '12px', fontWeight: 400, lineHeight: 1, letterSpacing: '0em' },
   { name: 'caption', description: 'Helper text, timestamps, metadata', fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: '12px', fontWeight: 400, lineHeight: 1.5, letterSpacing: '0em' },
-  { name: 'overline', description: 'Section dividers, category labels (uppercase intent)', fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: '12px', fontWeight: 600, lineHeight: 1.2, letterSpacing: '0.05em' },
+  { name: 'overline', description: 'Section dividers, category labels (uppercase intent)', fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: '12px', fontWeight: 600, lineHeight: 1, letterSpacing: '0.05em' },
   { name: 'code', description: 'Inline code, data values, monospace', fontFamily: "'SF Mono', 'Fira Code', 'Fira Mono', monospace", fontSize: '14px', fontWeight: 400, lineHeight: 1.5, letterSpacing: '0em' },
 ];
 
@@ -40,6 +41,7 @@ interface TokenRow { name: string; value: string; description?: string; }
 const sections = [
   { id: 'typography', label: 'Typography' },
   { id: 'colors', label: 'Colors' },
+  { id: 'strain-colors', label: 'Strain Colors' },
   { id: 'spacing', label: 'Spacing' },
   { id: 'radius', label: 'Radius' },
   { id: 'borders', label: 'Borders' },
@@ -173,6 +175,79 @@ function ColorsSection() {
           </div>
         </div>
       ))}
+    </section>
+  );
+}
+
+const strainTypes = [
+  {
+    id: 'sativa',
+    label: 'Sativa',
+    subtitle: 'Upper / energetic',
+    fill: '--weedlog-color-strain-sativa-fill',
+    onFill: '--weedlog-color-strain-sativa-on-fill',
+    text: '--weedlog-color-strain-sativa-text',
+  },
+  {
+    id: 'indica',
+    label: 'Indica',
+    subtitle: 'Downer / relaxing',
+    fill: '--weedlog-color-strain-indica-fill',
+    onFill: '--weedlog-color-strain-indica-on-fill',
+    text: '--weedlog-color-strain-indica-text',
+  },
+  {
+    id: 'hybrid',
+    label: 'Hybrid',
+    subtitle: 'Balanced / mixed',
+    fill: '--weedlog-color-strain-hybrid-fill',
+    onFill: '--weedlog-color-strain-hybrid-on-fill',
+    text: '--weedlog-color-strain-hybrid-text',
+  },
+];
+
+function StrainColorsSection() {
+  return (
+    <section id="strain-colors" className="dr-section">
+      <h2 className="dr-section-title">Strain Colors</h2>
+      <p className="dr-section-desc">
+        Semantic colors for cannabis type classification. Each type has a <strong>fill</strong> for
+        tag/pill backgrounds, <strong>on-fill</strong> for text on those backgrounds, and a{' '}
+        <strong>text</strong> color for use on neutral surfaces.
+      </p>
+      <div className="dr-strain-grid">
+        {strainTypes.map((s) => (
+          <div key={s.id} className="dr-strain-card">
+            <div className="dr-strain-previews">
+              <span
+                className="dr-strain-pill"
+                style={{ background: `var(${s.fill})`, color: `var(${s.onFill})` }}
+              >
+                {s.label}
+              </span>
+              <span className="dr-strain-text-sample" style={{ color: `var(${s.text})` }}>
+                {s.label}
+              </span>
+            </div>
+            <div className="dr-strain-meta">
+              <span className="dr-strain-label">{s.label}</span>
+              <span className="dr-strain-subtitle">{s.subtitle}</span>
+            </div>
+            <div className="dr-strain-tokens">
+              {[
+                { role: 'fill', token: s.fill },
+                { role: 'on-fill', token: s.onFill },
+                { role: 'text', token: s.text },
+              ].map(({ role, token }) => (
+                <div key={role} className="dr-strain-token-row">
+                  <span className="dr-strain-token-role">{role}</span>
+                  <span className="dr-strain-token-name">{token.slice(2)}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
     </section>
   );
 }
@@ -391,6 +466,7 @@ export default function FontSampler() {
 
         <TypographySection />
         <ColorsSection />
+        <StrainColorsSection />
         <SpacingSection />
         <RadiusSection />
         <BordersSection />

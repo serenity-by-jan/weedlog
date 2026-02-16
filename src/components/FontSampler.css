@@ -227,6 +227,96 @@
 }
 
 /* ================================================================== */
+/*  Strain Colors                                                      */
+/* ================================================================== */
+
+.dr-strain-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--weedlog-spacing-4);
+}
+
+.dr-strain-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--weedlog-spacing-4);
+  padding: var(--weedlog-spacing-4);
+  border-radius: var(--weedlog-radius-lg);
+  border: var(--weedlog-border-width-thin) solid var(--weedlog-color-border-default);
+  background: var(--weedlog-color-surface-primary);
+}
+
+.dr-strain-previews {
+  display: flex;
+  align-items: center;
+  gap: var(--weedlog-spacing-3);
+}
+
+.dr-strain-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--weedlog-spacing-1) var(--weedlog-spacing-3);
+  border-radius: var(--weedlog-radius-full);
+  font-size: var(--weedlog-typography-tag-font-size);
+  font-weight: var(--weedlog-typography-tag-font-weight);
+  line-height: var(--weedlog-typography-tag-line-height);
+  white-space: nowrap;
+}
+
+.dr-strain-text-sample {
+  font-size: var(--weedlog-typography-label-font-size);
+  font-weight: var(--weedlog-typography-label-font-weight);
+  line-height: var(--weedlog-typography-label-line-height);
+}
+
+.dr-strain-meta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--weedlog-spacing-1);
+}
+
+.dr-strain-label {
+  font-size: var(--weedlog-typography-label-font-size);
+  font-weight: var(--weedlog-typography-label-font-weight);
+  color: var(--weedlog-color-text-primary);
+}
+
+.dr-strain-subtitle {
+  font-size: var(--weedlog-typography-caption-font-size);
+  color: var(--weedlog-color-text-muted);
+}
+
+.dr-strain-tokens {
+  display: flex;
+  flex-direction: column;
+  gap: var(--weedlog-spacing-1);
+}
+
+.dr-strain-token-row {
+  display: flex;
+  align-items: baseline;
+  gap: var(--weedlog-spacing-2);
+}
+
+.dr-strain-token-role {
+  font-family: var(--weedlog-typography-code-font-family);
+  font-size: 10px;
+  font-weight: var(--weedlog-typography-label-font-weight);
+  color: var(--weedlog-color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: var(--weedlog-typography-overline-letter-spacing);
+  width: 44px;
+  flex-shrink: 0;
+}
+
+.dr-strain-token-name {
+  font-family: var(--weedlog-typography-code-font-family);
+  font-size: 10px;
+  color: var(--weedlog-color-text-secondary);
+  word-break: break-all;
+}
+
+/* ================================================================== */
 /*  Spacing                                                            */
 /* ================================================================== */
 
@@ -499,6 +589,10 @@
   }
 
   .dr-color-swatches {
+    grid-template-columns: 1fr;
+  }
+
+  .dr-strain-grid {
     grid-template-columns: 1fr;
   }
 
