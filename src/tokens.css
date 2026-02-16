@@ -21,6 +21,7 @@
   --weedlog-color-border-default: #e4e4e0; /** Default card and input borders */
   --weedlog-color-border-strong: #c4c4c0; /** Emphasized borders, active states */
   --weedlog-color-border-subtle: #f0f0ee; /** Dividers, separators */
+  --weedlog-color-border-brand: #16a34a; /** Brand-colored border — e.g. outlined variant of primary button */
   --weedlog-color-interactive-focus: #22c55e; /** Focus ring color */
   --weedlog-color-semantic-success: #16a34a; /** Positive states, confirmations */
   --weedlog-color-semantic-success-subtle: #f0fdf4; /** Success background tint */
@@ -30,6 +31,15 @@
   --weedlog-color-semantic-error-subtle: #fef2f2; /** Error background tint */
   --weedlog-color-semantic-info: #2563eb; /** Informational states, tips */
   --weedlog-color-semantic-info-subtle: #eff6ff; /** Info background tint */
+  --weedlog-color-strain-sativa-fill: #fef9c3; /** Tag/pill background — sativa / upper. Pale golden yellow. */
+  --weedlog-color-strain-sativa-on-fill: #78350f; /** Text on sativa fill — 8.5:1 contrast on #fef9c3 */
+  --weedlog-color-strain-sativa-text: #a16207; /** Sativa label color on neutral backgrounds — 5.0:1 on white */
+  --weedlog-color-strain-indica-fill: #ede9fe; /** Tag/pill background — indica / downer. Pale lavender. */
+  --weedlog-color-strain-indica-on-fill: #3b0764; /** Text on indica fill — 13.6:1 contrast on #ede9fe */
+  --weedlog-color-strain-indica-text: #7c3aed; /** Indica label color on neutral backgrounds — 5.8:1 on white */
+  --weedlog-color-strain-hybrid-fill: #fceede; /** Tag/pill background — hybrid. Pale warm terracotta. */
+  --weedlog-color-strain-hybrid-on-fill: #7c2d12; /** Text on hybrid fill — 9.0:1 contrast on #fceede */
+  --weedlog-color-strain-hybrid-text: #b45309; /** Hybrid label color on neutral backgrounds — 4.7:1 on white */
   --weedlog-color-overlay-backdrop: rgba(0, 0, 0, 0.5); /** Modal/dialog backdrop */
   --weedlog-color-overlay-scrim: rgba(0, 0, 0, 0.25); /** Light scrim for drawer edges */
   --weedlog-spacing-1: 4px; /** Tightest — icon gaps, inline padding */
@@ -120,13 +130,18 @@
   --weedlog-typography-label-font-family: 'Bricolage Grotesque', sans-serif; /** Buttons, nav items, form labels */
   --weedlog-typography-label-font-size: 14px; /** Buttons, nav items, form labels */
   --weedlog-typography-label-font-weight: 600; /** Buttons, nav items, form labels */
-  --weedlog-typography-label-line-height: 120%; /** Buttons, nav items, form labels */
+  --weedlog-typography-label-line-height: 100%; /** Buttons, nav items, form labels */
   --weedlog-typography-label-letter-spacing: 0em; /** Buttons, nav items, form labels */
-  --weedlog-typography-label-sm-font-family: 'Bricolage Grotesque', sans-serif; /** Badges, tags, small interactive text */
-  --weedlog-typography-label-sm-font-size: 12px; /** Badges, tags, small interactive text */
-  --weedlog-typography-label-sm-font-weight: 600; /** Badges, tags, small interactive text */
-  --weedlog-typography-label-sm-line-height: 120%; /** Badges, tags, small interactive text */
-  --weedlog-typography-label-sm-letter-spacing: 0em; /** Badges, tags, small interactive text */
+  --weedlog-typography-label-sm-font-family: 'Bricolage Grotesque', sans-serif; /** Badges, tags, small interactive text (semibold) */
+  --weedlog-typography-label-sm-font-size: 12px; /** Badges, tags, small interactive text (semibold) */
+  --weedlog-typography-label-sm-font-weight: 600; /** Badges, tags, small interactive text (semibold) */
+  --weedlog-typography-label-sm-line-height: 100%; /** Badges, tags, small interactive text (semibold) */
+  --weedlog-typography-label-sm-letter-spacing: 0em; /** Badges, tags, small interactive text (semibold) */
+  --weedlog-typography-tag-font-family: 'Bricolage Grotesque', sans-serif; /** Tag/pill/chip text — regular weight UI label, never wraps */
+  --weedlog-typography-tag-font-size: 12px; /** Tag/pill/chip text — regular weight UI label, never wraps */
+  --weedlog-typography-tag-font-weight: 400; /** Tag/pill/chip text — regular weight UI label, never wraps */
+  --weedlog-typography-tag-line-height: 100%; /** Tag/pill/chip text — regular weight UI label, never wraps */
+  --weedlog-typography-tag-letter-spacing: 0em; /** Tag/pill/chip text — regular weight UI label, never wraps */
   --weedlog-typography-caption-font-family: 'Bricolage Grotesque', sans-serif; /** Helper text, timestamps, metadata */
   --weedlog-typography-caption-font-size: 12px; /** Helper text, timestamps, metadata */
   --weedlog-typography-caption-font-weight: 400; /** Helper text, timestamps, metadata */
@@ -135,7 +150,7 @@
   --weedlog-typography-overline-font-family: 'Bricolage Grotesque', sans-serif; /** Section dividers, category labels (uppercase intent) */
   --weedlog-typography-overline-font-size: 12px; /** Section dividers, category labels (uppercase intent) */
   --weedlog-typography-overline-font-weight: 600; /** Section dividers, category labels (uppercase intent) */
-  --weedlog-typography-overline-line-height: 120%; /** Section dividers, category labels (uppercase intent) */
+  --weedlog-typography-overline-line-height: 100%; /** Section dividers, category labels (uppercase intent) */
   --weedlog-typography-overline-letter-spacing: 0.05em; /** Section dividers, category labels (uppercase intent) */
   --weedlog-typography-code-font-family: 'SF Mono', 'Fira Code', 'Fira Mono', monospace; /** Inline code, data values, monospace */
   --weedlog-typography-code-font-size: 14px; /** Inline code, data values, monospace */
