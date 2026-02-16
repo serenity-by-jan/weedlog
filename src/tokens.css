@@ -3,38 +3,83 @@
  */
 
 :root {
-  --color-primary: #016630;
-  --color-primary-invert: #dcfce7;
-  --color-hover: #008236;
-  --color-pressed: #0d542b;
-  --color-focus: #7bf1a8;
-  --color-border: rgba(255, 255, 255, 0.1);
-  --color-landing-bg: #052e16;
-  --color-landing-text: #dcfce7;
-  --color-landing-text-outline: #0d542b;
-  --color-overlay-0: rgba(0, 0, 0, 0);
-  --color-overlay-25: rgba(0, 0, 0, 0.25);
-  --color-overlay-50: rgba(0, 0, 0, 0.5);
-  --blur-none: 0px;
-  --blur-xs: 4px;
-  --blur-lg: 16px;
-  --focus-outline-offset: 3px;
-  --transition-duration: 210ms;
-  --transition-easing: ease;
-  --radius-sm: 4px;
-  --radius-md: 6px;
-  --border-width-2: 2px;
-  --border-width-3: 3px;
-  --container-sm: 384px;
-  --container-2xl: 672px;
-  --spacing-2: 8px;
-  --spacing-4: 16px;
-  --spacing-8: 32px;
-  --spacing-32: 128px;
-  --font-family-sans: 'Bricolage Grotesque', sans-serif;
-  --font-weight-normal: 400;
+  --color-bg-primary: #ffffff; /** Page background */
+  --color-bg-secondary: #f5f5f3; /** Subtle background for sections, sidebars */
+  --color-bg-tertiary: #ebebea; /** Inset backgrounds, wells */
+  --color-bg-inverse: #1a1a1a; /** Dark background for inverted sections */
+  --color-surface-primary: #ffffff; /** Card / panel background */
+  --color-surface-secondary: #f5f5f3; /** Nested card or secondary surface */
+  --color-surface-elevated: #ffffff; /** Modals, dropdowns, tooltips */
+  --color-text-primary: #1a1a1a; /** Headings, important body text — WCAG AAA on white */
+  --color-text-secondary: #525252; /** Supporting text, descriptions — WCAG AA on white */
+  --color-text-muted: #9a9a98; /** Placeholders, timestamps, disabled labels — decorative only */
+  --color-text-inverse: #ffffff; /** Text on dark/inverse backgrounds */
+  --color-text-on-brand: #ffffff; /** Text on brand-colored backgrounds */
+  --color-brand-primary: #16a34a; /** Main brand green — buttons, links, accents. 4.5:1 on white. */
+  --color-brand-primary-hover: #15803d; /** Brand hover — darker for light mode */
+  --color-brand-primary-active: #166534; /** Brand pressed/active state */
+  --color-border-default: #e4e4e0; /** Default card and input borders */
+  --color-border-strong: #c4c4c0; /** Emphasized borders, active states */
+  --color-border-subtle: #f0f0ee; /** Dividers, separators */
+  --color-interactive-focus: #22c55e; /** Focus ring color */
+  --color-semantic-success: #16a34a; /** Positive states, confirmations */
+  --color-semantic-success-subtle: #f0fdf4; /** Success background tint */
+  --color-semantic-warning: #d97706; /** Caution states, pending */
+  --color-semantic-warning-subtle: #fffbeb; /** Warning background tint */
+  --color-semantic-error: #dc2626; /** Error states, destructive */
+  --color-semantic-error-subtle: #fef2f2; /** Error background tint */
+  --color-semantic-info: #2563eb; /** Informational states, tips */
+  --color-semantic-info-subtle: #eff6ff; /** Info background tint */
+  --color-overlay-backdrop: rgba(0, 0, 0, 0.5); /** Modal/dialog backdrop */
+  --color-overlay-scrim: rgba(0, 0, 0, 0.25); /** Light scrim for drawer edges */
+  --spacing-1: 4px; /** Tightest — icon gaps, inline padding */
+  --spacing-2: 8px; /** Tight — between related elements */
+  --spacing-3: 12px; /** Compact — dense list padding */
+  --spacing-4: 16px; /** Default — card padding, stack gap */
+  --spacing-6: 24px; /** Comfortable — between sections within a card */
+  --spacing-8: 32px; /** Spacious — between page sections */
+  --spacing-12: 48px; /** Large — major section breaks */
+  --spacing-16: 64px; /** Extra large — page padding, hero spacing */
+  --font-family-sans: 'Bricolage Grotesque', sans-serif; /** Primary typeface for all UI */
+  --font-family-mono: 'SF Mono', 'Fira Code', 'Fira Mono', monospace; /** Code and data */
+  --font-weight-regular: 400;
+  --font-weight-medium: 600;
   --font-weight-bold: 700;
-  --font-size-base: 16px;
-  --font-size-5xl: 48px;
-  --letter-spacing-tight: -1.44px;
+  --font-size-xs: 12px; /** Captions, badges */
+  --font-size-sm: 14px; /** Secondary text, labels */
+  --font-size-base: 16px; /** Body text */
+  --font-size-lg: 18px; /** Large body, card titles */
+  --font-size-xl: 20px; /** Section headings */
+  --font-size-2xl: 24px; /** Page headings */
+  --font-size-3xl: 30px; /** Large headings */
+  --font-size-4xl: 36px; /** Display */
+  --font-size-5xl: 48px; /** Hero display */
+  --font-line-height-tight: 1.2; /** Headings */
+  --font-line-height-normal: 1.5; /** Body text */
+  --font-line-height-relaxed: 1.75; /** Long-form reading */
+  --font-letter-spacing-tight: -0.025em; /** Display/hero text */
+  --font-letter-spacing-normal: 0em; /** Body text */
+  --font-letter-spacing-wide: 0.05em; /** Uppercase labels, captions */
+  --radius-sm: 2px; /** Buttons, badges, inputs */
+  --radius-md: 4px; /** Cards, panels */
+  --radius-lg: 8px; /** Modals, large cards */
+  --radius-full: 9999px; /** Pills, avatars */
+  --border-width-thin: 1px; /** Default borders, dividers */
+  --border-width-medium: 2px; /** Input borders, interactive outlines */
+  --border-width-thick: 3px; /** Focus rings, emphasis */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05); /** Subtle lift — cards */
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07); /** Moderate lift — dropdowns */
+  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1); /** Strong lift — modals, dialogs */
+  --container-sm: 384px; /** Narrow — auth forms, modals */
+  --container-md: 672px; /** Medium — content pages */
+  --container-lg: 1024px; /** Wide — dashboards */
+  --container-xl: 1200px; /** Max width — site container */
+  --focus-outline-offset: 2px; /** Space between element and focus ring */
+  --transition-fast: 120ms ease; /** Micro-interactions — hover, focus */
+  --transition-normal: 200ms ease; /** Standard transitions — expand, toggle */
+  --transition-slow: 350ms ease; /** Layout shifts, page transitions */
+  --z-dropdown: 100; /** Dropdowns, popovers */
+  --z-sticky: 200; /** Sticky headers, nav */
+  --z-modal: 300; /** Modals, dialogs */
+  --z-toast: 400; /** Toasts, notifications — always on top */
 }

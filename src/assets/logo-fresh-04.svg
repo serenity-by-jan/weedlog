@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- 04: Rounded trident — 3 chunky rounded-tip fingers, ultra friendly -->
+  <g fill="none" stroke="#1a1a1a" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M100,165 L100,95"/>
+    <path d="M100,95 Q100,55 100,35"/>
+    <path d="M100,95 Q72,65 52,42"/>
+    <path d="M100,95 Q128,65 148,42"/>
+  </g>
+  <!-- rounded caps at finger tips for extra friendliness -->
+  <g fill="#1a1a1a" stroke="none">
+    <circle cx="100" cy="35" r="5"/>
+    <circle cx="52" cy="42" r="5"/>
+    <circle cx="148" cy="42" r="5"/>
+  </g>
+</svg>

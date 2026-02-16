@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 200" width="520" height="200">
+  <!-- Icon: tilted asterisk, stroke 18 -->
+  <g fill="none" stroke="#1a1a1a" stroke-width="18" stroke-linecap="round" transform="rotate(-15, 100, 100)">
+    <line x1="100" y1="100" x2="100" y2="35"/>
+    <line x1="100" y1="100" x2="162" y2="55"/>
+    <line x1="100" y1="100" x2="138" y2="135"/>
+    <line x1="100" y1="100" x2="62" y2="135"/>
+    <line x1="100" y1="100" x2="38" y2="55"/>
+    <line x1="100" y1="100" x2="100" y2="168"/>
+  </g>
+  <!-- Wordmark -->
+  <text x="210" y="118" font-family="'Bricolage Grotesque', sans-serif" font-size="64" font-weight="700" fill="#1a1a1a" letter-spacing="-1">Weedlog</text>
+</svg>

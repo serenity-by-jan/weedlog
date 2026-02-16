@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- 03: Spark leaf — 5 fingers radiate like a starburst, slightly uneven for character -->
+  <g fill="none" stroke="#1a1a1a" stroke-width="6" stroke-linecap="round">
+    <path d="M100,160 L100,105"/>
+    <path d="M100,105 L100,28"/>
+    <path d="M100,105 L58,40"/>
+    <path d="M100,105 L142,40"/>
+    <path d="M100,105 L32,78"/>
+    <path d="M100,105 L168,78"/>
+    <!-- tiny spark flares at tips -->
+    <path d="M96,28 L100,20 L104,28"/>
+    <path d="M54,42 L50,34 L60,38"/>
+    <path d="M138,42 L142,34 L146,38"/>
+  </g>
+</svg>

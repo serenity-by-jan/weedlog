@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- 09: Curved arms — arms have a slight outward bend, organic asterisk -->
+  <g fill="none" stroke="#1a1a1a" stroke-width="10" stroke-linecap="round">
+    <path d="M100,100 Q95,65 100,35"/>
+    <path d="M100,100 Q140,68 162,55"/>
+    <path d="M100,100 Q130,110 138,135"/>
+    <path d="M100,100 Q70,110 62,135"/>
+    <path d="M100,100 Q60,68 38,55"/>
+    <path d="M100,100 Q105,135 100,168"/>
+  </g>
+</svg>

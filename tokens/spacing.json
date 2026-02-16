@@ -1,8 +1,0 @@
-{
-  "spacing": {
-    "2": { "value": "8px", "type": "dimension", "description": "8px — tight spacing" },
-    "4": { "value": "16px", "type": "dimension", "description": "16px — default spacing" },
-    "8": { "value": "32px", "type": "dimension", "description": "32px — section spacing" },
-    "32": { "value": "128px", "type": "dimension", "description": "128px — hero spacing" }
-  }
-}

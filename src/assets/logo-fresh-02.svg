@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- 02: Peace leaf — two fingers up in a V like a peace sign, stem below -->
+  <g fill="none" stroke="#1a1a1a" stroke-width="7" stroke-linecap="round">
+    <path d="M100,165 L100,100"/>
+    <path d="M100,100 L78,35"/>
+    <path d="M100,100 L122,35"/>
+  </g>
+</svg>

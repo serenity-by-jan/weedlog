@@ -10,7 +10,8 @@
       "Bash(node tokens/build.mjs:*)",
       "Bash(npm run lint:*)",
       "Bash(git status:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
     ]
   }
 }

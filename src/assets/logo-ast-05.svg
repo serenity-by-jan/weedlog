@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- 05: 7-arm asterisk — two extra short arms between the outer pairs -->
+  <g fill="none" stroke="#1a1a1a" stroke-width="10" stroke-linecap="round">
+    <line x1="100" y1="100" x2="100" y2="35"/>
+    <line x1="100" y1="100" x2="162" y2="55"/>
+    <line x1="100" y1="100" x2="138" y2="135"/>
+    <line x1="100" y1="100" x2="62" y2="135"/>
+    <line x1="100" y1="100" x2="38" y2="55"/>
+    <!-- extra short arms -->
+    <line x1="100" y1="100" x2="140" y2="38"/>
+    <line x1="100" y1="100" x2="60" y2="38"/>
+    <line x1="100" y1="100" x2="100" y2="168"/>
+  </g>
+</svg>

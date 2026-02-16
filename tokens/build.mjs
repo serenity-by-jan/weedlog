@@ -1,11 +1,15 @@
 import StyleDictionary from 'style-dictionary';
 
 const sd = new StyleDictionary({
-  source: ['tokens/**/*.json'],
+  source: ['tokens/tokens.json'],
+  preprocessors: ['tokens-studio'],
   platforms: {
     css: {
       transformGroup: 'css',
       buildPath: 'src/',
+      options: {
+        usesDtcg: true,
+      },
       files: [
         {
           destination: 'tokens.css',

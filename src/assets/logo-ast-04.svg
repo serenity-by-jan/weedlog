@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- 04: Uneven arms — different lengths, more organic/playful -->
+  <g fill="none" stroke="#1a1a1a" stroke-width="10" stroke-linecap="round">
+    <line x1="100" y1="100" x2="100" y2="30"/>
+    <line x1="100" y1="100" x2="158" y2="58"/>
+    <line x1="100" y1="100" x2="130" y2="128"/>
+    <line x1="100" y1="100" x2="68" y2="122"/>
+    <line x1="100" y1="100" x2="48" y2="62"/>
+    <line x1="100" y1="100" x2="100" y2="168"/>
+  </g>
+</svg>

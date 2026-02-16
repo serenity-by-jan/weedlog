@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- 06: Open hand — 5 fingers that splay VERY wide, like an open welcoming hand -->
+  <g fill="none" stroke="#1a1a1a" stroke-width="6" stroke-linecap="round">
+    <path d="M100,165 L100,100"/>
+    <path d="M100,100 L100,30"/>
+    <path d="M100,100 L50,40"/>
+    <path d="M100,100 L150,40"/>
+    <path d="M100,100 L20,85"/>
+    <path d="M100,100 L180,85"/>
+  </g>
+</svg>

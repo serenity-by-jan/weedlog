@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- 01: Waving leaf — 5 fingers that curve in the same direction, like blowing in wind -->
+  <g fill="none" stroke="#1a1a1a" stroke-width="6" stroke-linecap="round">
+    <path d="M100,160 L100,100"/>
+    <path d="M100,100 Q108,65 115,30"/>
+    <path d="M100,100 Q85,70 72,38"/>
+    <path d="M100,100 Q128,72 148,42"/>
+    <path d="M100,100 Q68,82 42,62"/>
+    <path d="M100,100 Q140,88 168,72"/>
+  </g>
+</svg>

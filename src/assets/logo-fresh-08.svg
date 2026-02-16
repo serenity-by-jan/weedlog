@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- 08: Droop leaf — fingers arc downward like a wilting/relaxed plant, chill vibes -->
+  <g fill="none" stroke="#1a1a1a" stroke-width="6" stroke-linecap="round">
+    <path d="M100,35 L100,95"/>
+    <path d="M100,95 Q100,130 100,165"/>
+    <path d="M100,95 Q70,115 45,140"/>
+    <path d="M100,95 Q130,115 155,140"/>
+    <path d="M100,95 Q55,105 25,115"/>
+    <path d="M100,95 Q145,105 175,115"/>
+  </g>
+</svg>

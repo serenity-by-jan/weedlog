@@ -5,8 +5,8 @@
   align-items: flex-start;
   justify-content: space-between;
   min-height: 100dvh;
-  padding: var(--spacing-32) var(--spacing-8);
-  background-color: var(--color-landing-bg);
+  padding: var(--spacing-16) var(--spacing-8);
+  background-color: var(--color-bg-inverse);
 }
 
 .landing-gradient {
@@ -14,9 +14,8 @@
   inset: 0;
   background: linear-gradient(
     to bottom,
-    var(--color-overlay-0) 0%,
-    var(--color-overlay-25) 29.3%,
-    var(--color-overlay-50) 79.8%
+    var(--color-overlay-scrim) 0%,
+    var(--color-overlay-backdrop) 79.8%
   );
   pointer-events: none;
 }
@@ -34,10 +33,9 @@
   font-weight: var(--font-weight-bold);
   font-size: var(--font-size-5xl);
   line-height: 1;
-  color: var(--color-landing-text);
+  color: var(--color-text-inverse);
   text-align: center;
-  letter-spacing: var(--letter-spacing-tight);
-  text-shadow: var(--blur-none) var(--blur-xs) var(--blur-lg) var(--color-overlay-25);
+  letter-spacing: var(--font-letter-spacing-tight);
   margin: 0;
 }
 

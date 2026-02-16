@@ -27,7 +27,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Architecture
 
-- `tokens/*.json` — design token source files (color, spacing, typography, shape, effects)
+- `tokens/tokens.json` — single-file design token source (all colors, spacing, typography, shape, effects)
 - `tokens/build.mjs` — Style Dictionary build script
 - `src/tokens.css` — **auto-generated** CSS custom properties (do not edit directly — edit `tokens/*.json` and run `npm run tokens:build`)
 - `src/components/` — React components, each with a co-located `.css` file
@@ -47,6 +47,6 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Design Token Workflow
 
-1. Edit the relevant JSON file in `tokens/` (color.json, spacing.json, typography.json, shape.json, effects.json)
+1. Edit `tokens/tokens.json`
 2. Run `npm run tokens:build` to regenerate `src/tokens.css`
 3. The JSON files are the source of truth — compatible with Figma Tokens plugin and Style Dictionary ecosystem
