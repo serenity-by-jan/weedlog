@@ -3,46 +3,46 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--spacing-2);
-  padding: var(--spacing-4);
-  width: var(--container-sm);
-  border: var(--border-width-medium) solid var(--color-border-default);
-  border-radius: var(--radius-sm);
-  background-color: var(--color-brand-primary);
-  color: var(--color-text-on-brand);
-  font-family: var(--typography-body-font-family);
-  font-weight: var(--typography-body-font-weight);
-  font-size: var(--typography-body-font-size);
+  gap: var(--weedlog-spacing-2);
+  padding: var(--weedlog-spacing-4);
+  width: var(--weedlog-container-sm);
+  border: var(--weedlog-border-width-medium) solid var(--weedlog-color-border-default);
+  border-radius: var(--weedlog-radius-sm);
+  background-color: var(--weedlog-color-brand-primary);
+  color: var(--weedlog-color-text-on-brand);
+  font-family: var(--weedlog-typography-body-font-family);
+  font-weight: var(--weedlog-typography-body-font-weight);
+  font-size: var(--weedlog-typography-body-font-size);
   line-height: 1;
   text-align: center;
   white-space: nowrap;
   cursor: pointer;
-  outline: var(--border-width-thick) solid transparent;
-  outline-offset: var(--focus-outline-offset);
+  outline: var(--weedlog-border-width-thick) solid transparent;
+  outline-offset: var(--weedlog-focus-outline-offset);
   transition:
-    background-color var(--transition-normal),
-    outline-color var(--transition-normal);
+    background-color var(--weedlog-transition-normal),
+    outline-color var(--weedlog-transition-normal);
 }
 
 .button:hover {
-  background-color: var(--color-brand-primary-hover);
+  background-color: var(--weedlog-color-brand-primary-hover);
 }
 
 .button:active {
-  background-color: var(--color-brand-primary-active);
+  background-color: var(--weedlog-color-brand-primary-active);
 }
 
 .button:focus-visible {
-  outline-color: var(--color-interactive-focus);
+  outline-color: var(--weedlog-color-interactive-focus);
   animation: focus-pulse 1.5s ease-in-out infinite;
 }
 
 @keyframes focus-pulse {
   0%, 100% {
-    outline-color: var(--color-interactive-focus);
+    outline-color: var(--weedlog-color-interactive-focus);
   }
   50% {
-    outline-color: color-mix(in srgb, var(--color-interactive-focus) 60%, var(--color-brand-primary));
+    outline-color: color-mix(in srgb, var(--weedlog-color-interactive-focus) 60%, var(--weedlog-color-brand-primary));
   }
 }
 
@@ -50,7 +50,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: var(--typography-body-font-size);
-  height: var(--typography-body-font-size);
+  width: var(--weedlog-typography-body-font-size);
+  height: var(--weedlog-typography-body-font-size);
   flex-shrink: 0;
 }

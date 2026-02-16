@@ -5,8 +5,8 @@
   align-items: flex-start;
   justify-content: space-between;
   min-height: 100dvh;
-  padding: var(--spacing-16) var(--spacing-8);
-  background-color: var(--color-bg-inverse);
+  padding: var(--weedlog-spacing-16) var(--weedlog-spacing-8);
+  background-color: var(--weedlog-color-bg-inverse);
 }
 
 .landing-gradient {
@@ -14,8 +14,8 @@
   inset: 0;
   background: linear-gradient(
     to bottom,
-    var(--color-overlay-scrim) 0%,
-    var(--color-overlay-backdrop) 79.8%
+    var(--weedlog-color-overlay-scrim) 0%,
+    var(--weedlog-color-overlay-backdrop) 79.8%
   );
   pointer-events: none;
 }
@@ -29,13 +29,13 @@
 }
 
 .landing-title {
-  font-family: var(--typography-body-font-family);
-  font-weight: var(--typography-heading-font-weight);
-  font-size: var(--typography-display-lg-font-size);
+  font-family: var(--weedlog-typography-body-font-family);
+  font-weight: var(--weedlog-typography-heading-font-weight);
+  font-size: var(--weedlog-typography-display-lg-font-size);
   line-height: 1;
-  color: var(--color-text-inverse);
+  color: var(--weedlog-color-text-inverse);
   text-align: center;
-  letter-spacing: var(--typography-heading-letter-spacing);
+  letter-spacing: var(--weedlog-typography-heading-letter-spacing);
   margin: 0;
 }
 

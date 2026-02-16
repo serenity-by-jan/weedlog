@@ -3,143 +3,143 @@
  */
 
 :root {
-  --color-bg-primary: #ffffff; /** Page background */
-  --color-bg-secondary: #f5f5f3; /** Subtle background for sections, sidebars */
-  --color-bg-tertiary: #ebebea; /** Inset backgrounds, wells */
-  --color-bg-inverse: #1a1a1a; /** Dark background for inverted sections */
-  --color-surface-primary: #ffffff; /** Card / panel background */
-  --color-surface-secondary: #f5f5f3; /** Nested card or secondary surface */
-  --color-surface-elevated: #ffffff; /** Modals, dropdowns, tooltips */
-  --color-text-primary: #1a1a1a; /** Headings, important body text — WCAG AAA on white */
-  --color-text-secondary: #525252; /** Supporting text, descriptions — WCAG AA on white */
-  --color-text-muted: #9a9a98; /** Placeholders, timestamps, disabled labels — decorative only */
-  --color-text-inverse: #ffffff; /** Text on dark/inverse backgrounds */
-  --color-text-on-brand: #ffffff; /** Text on brand-colored backgrounds */
-  --color-brand-primary: #16a34a; /** Main brand green — buttons, links, accents. 4.5:1 on white. */
-  --color-brand-primary-hover: #15803d; /** Brand hover — darker for light mode */
-  --color-brand-primary-active: #166534; /** Brand pressed/active state */
-  --color-border-default: #e4e4e0; /** Default card and input borders */
-  --color-border-strong: #c4c4c0; /** Emphasized borders, active states */
-  --color-border-subtle: #f0f0ee; /** Dividers, separators */
-  --color-interactive-focus: #22c55e; /** Focus ring color */
-  --color-semantic-success: #16a34a; /** Positive states, confirmations */
-  --color-semantic-success-subtle: #f0fdf4; /** Success background tint */
-  --color-semantic-warning: #d97706; /** Caution states, pending */
-  --color-semantic-warning-subtle: #fffbeb; /** Warning background tint */
-  --color-semantic-error: #dc2626; /** Error states, destructive */
-  --color-semantic-error-subtle: #fef2f2; /** Error background tint */
-  --color-semantic-info: #2563eb; /** Informational states, tips */
-  --color-semantic-info-subtle: #eff6ff; /** Info background tint */
-  --color-overlay-backdrop: rgba(0, 0, 0, 0.5); /** Modal/dialog backdrop */
-  --color-overlay-scrim: rgba(0, 0, 0, 0.25); /** Light scrim for drawer edges */
-  --spacing-1: 4px; /** Tightest — icon gaps, inline padding */
-  --spacing-2: 8px; /** Tight — between related elements */
-  --spacing-3: 12px; /** Compact — dense list padding */
-  --spacing-4: 16px; /** Default — card padding, stack gap */
-  --spacing-6: 24px; /** Comfortable — between sections within a card */
-  --spacing-8: 32px; /** Spacious — between page sections */
-  --spacing-12: 48px; /** Large — major section breaks */
-  --spacing-16: 64px; /** Extra large — page padding, hero spacing */
-  --radius-sm: 2px; /** Buttons, badges, inputs */
-  --radius-md: 4px; /** Cards, panels */
-  --radius-lg: 8px; /** Modals, large cards */
-  --radius-full: 9999px; /** Pills, avatars */
-  --border-width-thin: 1px; /** Default borders, dividers */
-  --border-width-medium: 2px; /** Input borders, interactive outlines */
-  --border-width-thick: 3px; /** Focus rings, emphasis */
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /** Subtle lift — cards */
-  --shadow-md: 0 4px 6px 0 rgba(0, 0, 0, 0.07); /** Moderate lift — dropdowns */
-  --shadow-lg: 0 10px 25px 0 rgba(0, 0, 0, 0.1); /** Strong lift — modals, dialogs */
-  --container-sm: 384px; /** Narrow — auth forms, modals */
-  --container-md: 672px; /** Medium — content pages */
-  --container-lg: 1024px; /** Wide — dashboards */
-  --container-xl: 1200px; /** Max width — site container */
-  --focus-outline-offset: 2px; /** Space between element and focus ring */
-  --transition-fast: 120ms ease 0ms; /** Micro-interactions — hover, focus */
-  --transition-normal: 200ms ease 0ms; /** Standard transitions — expand, toggle */
-  --transition-slow: 350ms ease 0ms; /** Layout shifts, page transitions */
-  --z-dropdown: 100; /** Dropdowns, popovers */
-  --z-sticky: 200; /** Sticky headers, nav */
-  --z-modal: 300; /** Modals, dialogs */
-  --z-toast: 400; /** Toasts, notifications — always on top */
-  --typography-display-lg-font-family: 'Bricolage Grotesque', sans-serif; /** Hero headlines */
-  --typography-display-lg-font-size: 48px; /** Hero headlines */
-  --typography-display-lg-font-weight: 700; /** Hero headlines */
-  --typography-display-lg-line-height: 1.2; /** Hero headlines */
-  --typography-display-lg-letter-spacing: -0.025em; /** Hero headlines */
-  --typography-display-font-family: 'Bricolage Grotesque', sans-serif; /** Page-level display text */
-  --typography-display-font-size: 36px; /** Page-level display text */
-  --typography-display-font-weight: 700; /** Page-level display text */
-  --typography-display-line-height: 1.2; /** Page-level display text */
-  --typography-display-letter-spacing: -0.025em; /** Page-level display text */
-  --typography-heading-lg-font-family: 'Bricolage Grotesque', sans-serif; /** Primary heading (h1) */
-  --typography-heading-lg-font-size: 30px; /** Primary heading (h1) */
-  --typography-heading-lg-font-weight: 700; /** Primary heading (h1) */
-  --typography-heading-lg-line-height: 1.2; /** Primary heading (h1) */
-  --typography-heading-lg-letter-spacing: -0.025em; /** Primary heading (h1) */
-  --typography-heading-font-family: 'Bricolage Grotesque', sans-serif; /** Section heading (h2) */
-  --typography-heading-font-size: 24px; /** Section heading (h2) */
-  --typography-heading-font-weight: 700; /** Section heading (h2) */
-  --typography-heading-line-height: 1.2; /** Section heading (h2) */
-  --typography-heading-letter-spacing: -0.025em; /** Section heading (h2) */
-  --typography-heading-sm-font-family: 'Bricolage Grotesque', sans-serif; /** Sub-heading (h3) */
-  --typography-heading-sm-font-size: 20px; /** Sub-heading (h3) */
-  --typography-heading-sm-font-weight: 600; /** Sub-heading (h3) */
-  --typography-heading-sm-line-height: 1.2; /** Sub-heading (h3) */
-  --typography-heading-sm-letter-spacing: -0.025em; /** Sub-heading (h3) */
-  --typography-body-lg-font-family: 'Bricolage Grotesque', sans-serif; /** Large body, card descriptions */
-  --typography-body-lg-font-size: 18px; /** Large body, card descriptions */
-  --typography-body-lg-font-weight: 400; /** Large body, card descriptions */
-  --typography-body-lg-line-height: 1.5; /** Large body, card descriptions */
-  --typography-body-lg-letter-spacing: 0em; /** Large body, card descriptions */
-  --typography-body-font-family: 'Bricolage Grotesque', sans-serif; /** Default body text */
-  --typography-body-font-size: 16px; /** Default body text */
-  --typography-body-font-weight: 400; /** Default body text */
-  --typography-body-line-height: 1.5; /** Default body text */
-  --typography-body-letter-spacing: 0em; /** Default body text */
-  --typography-body-sm-font-family: 'Bricolage Grotesque', sans-serif; /** Compact body text */
-  --typography-body-sm-font-size: 14px; /** Compact body text */
-  --typography-body-sm-font-weight: 400; /** Compact body text */
-  --typography-body-sm-line-height: 1.5; /** Compact body text */
-  --typography-body-sm-letter-spacing: 0em; /** Compact body text */
-  --typography-emphasis-lg-font-family: 'Bricolage Grotesque', sans-serif; /** Key data, strong callouts at large body scale */
-  --typography-emphasis-lg-font-size: 18px; /** Key data, strong callouts at large body scale */
-  --typography-emphasis-lg-font-weight: 600; /** Key data, strong callouts at large body scale */
-  --typography-emphasis-lg-line-height: 1.5; /** Key data, strong callouts at large body scale */
-  --typography-emphasis-lg-letter-spacing: 0em; /** Key data, strong callouts at large body scale */
-  --typography-emphasis-font-family: 'Bricolage Grotesque', sans-serif; /** Inline importance, key values */
-  --typography-emphasis-font-size: 16px; /** Inline importance, key values */
-  --typography-emphasis-font-weight: 600; /** Inline importance, key values */
-  --typography-emphasis-line-height: 1.5; /** Inline importance, key values */
-  --typography-emphasis-letter-spacing: 0em; /** Inline importance, key values */
-  --typography-emphasis-sm-font-family: 'Bricolage Grotesque', sans-serif; /** Small emphasized text */
-  --typography-emphasis-sm-font-size: 14px; /** Small emphasized text */
-  --typography-emphasis-sm-font-weight: 600; /** Small emphasized text */
-  --typography-emphasis-sm-line-height: 1.5; /** Small emphasized text */
-  --typography-emphasis-sm-letter-spacing: 0em; /** Small emphasized text */
-  --typography-label-font-family: 'Bricolage Grotesque', sans-serif; /** Buttons, nav items, form labels */
-  --typography-label-font-size: 14px; /** Buttons, nav items, form labels */
-  --typography-label-font-weight: 600; /** Buttons, nav items, form labels */
-  --typography-label-line-height: 1.2; /** Buttons, nav items, form labels */
-  --typography-label-letter-spacing: 0em; /** Buttons, nav items, form labels */
-  --typography-label-sm-font-family: 'Bricolage Grotesque', sans-serif; /** Badges, tags, small interactive text */
-  --typography-label-sm-font-size: 12px; /** Badges, tags, small interactive text */
-  --typography-label-sm-font-weight: 600; /** Badges, tags, small interactive text */
-  --typography-label-sm-line-height: 1.2; /** Badges, tags, small interactive text */
-  --typography-label-sm-letter-spacing: 0em; /** Badges, tags, small interactive text */
-  --typography-caption-font-family: 'Bricolage Grotesque', sans-serif; /** Helper text, timestamps, metadata */
-  --typography-caption-font-size: 12px; /** Helper text, timestamps, metadata */
-  --typography-caption-font-weight: 400; /** Helper text, timestamps, metadata */
-  --typography-caption-line-height: 1.5; /** Helper text, timestamps, metadata */
-  --typography-caption-letter-spacing: 0em; /** Helper text, timestamps, metadata */
-  --typography-overline-font-family: 'Bricolage Grotesque', sans-serif; /** Section dividers, category labels (uppercase intent) */
-  --typography-overline-font-size: 12px; /** Section dividers, category labels (uppercase intent) */
-  --typography-overline-font-weight: 600; /** Section dividers, category labels (uppercase intent) */
-  --typography-overline-line-height: 1.2; /** Section dividers, category labels (uppercase intent) */
-  --typography-overline-letter-spacing: 0.05em; /** Section dividers, category labels (uppercase intent) */
-  --typography-code-font-family: 'SF Mono', 'Fira Code', 'Fira Mono', monospace; /** Inline code, data values, monospace */
-  --typography-code-font-size: 14px; /** Inline code, data values, monospace */
-  --typography-code-font-weight: 400; /** Inline code, data values, monospace */
-  --typography-code-line-height: 1.5; /** Inline code, data values, monospace */
-  --typography-code-letter-spacing: 0em; /** Inline code, data values, monospace */
+  --weedlog-color-bg-primary: #ffffff; /** Page background */
+  --weedlog-color-bg-secondary: #f5f5f3; /** Subtle background for sections, sidebars */
+  --weedlog-color-bg-tertiary: #ebebea; /** Inset backgrounds, wells */
+  --weedlog-color-bg-inverse: #1a1a1a; /** Dark background for inverted sections */
+  --weedlog-color-surface-primary: #ffffff; /** Card / panel background */
+  --weedlog-color-surface-secondary: #f5f5f3; /** Nested card or secondary surface */
+  --weedlog-color-surface-elevated: #ffffff; /** Modals, dropdowns, tooltips */
+  --weedlog-color-text-primary: #1a1a1a; /** Headings, important body text — WCAG AAA on white */
+  --weedlog-color-text-secondary: #525252; /** Supporting text, descriptions — WCAG AA on white */
+  --weedlog-color-text-muted: #9a9a98; /** Placeholders, timestamps, disabled labels — decorative only */
+  --weedlog-color-text-inverse: #ffffff; /** Text on dark/inverse backgrounds */
+  --weedlog-color-text-on-brand: #ffffff; /** Text on brand-colored backgrounds */
+  --weedlog-color-brand-primary: #16a34a; /** Main brand green — buttons, links, accents. 4.5:1 on white. */
+  --weedlog-color-brand-primary-hover: #15803d; /** Brand hover — darker for light mode */
+  --weedlog-color-brand-primary-active: #166534; /** Brand pressed/active state */
+  --weedlog-color-border-default: #e4e4e0; /** Default card and input borders */
+  --weedlog-color-border-strong: #c4c4c0; /** Emphasized borders, active states */
+  --weedlog-color-border-subtle: #f0f0ee; /** Dividers, separators */
+  --weedlog-color-interactive-focus: #22c55e; /** Focus ring color */
+  --weedlog-color-semantic-success: #16a34a; /** Positive states, confirmations */
+  --weedlog-color-semantic-success-subtle: #f0fdf4; /** Success background tint */
+  --weedlog-color-semantic-warning: #d97706; /** Caution states, pending */
+  --weedlog-color-semantic-warning-subtle: #fffbeb; /** Warning background tint */
+  --weedlog-color-semantic-error: #dc2626; /** Error states, destructive */
+  --weedlog-color-semantic-error-subtle: #fef2f2; /** Error background tint */
+  --weedlog-color-semantic-info: #2563eb; /** Informational states, tips */
+  --weedlog-color-semantic-info-subtle: #eff6ff; /** Info background tint */
+  --weedlog-color-overlay-backdrop: rgba(0, 0, 0, 0.5); /** Modal/dialog backdrop */
+  --weedlog-color-overlay-scrim: rgba(0, 0, 0, 0.25); /** Light scrim for drawer edges */
+  --weedlog-spacing-1: 4px; /** Tightest — icon gaps, inline padding */
+  --weedlog-spacing-2: 8px; /** Tight — between related elements */
+  --weedlog-spacing-3: 12px; /** Compact — dense list padding */
+  --weedlog-spacing-4: 16px; /** Default — card padding, stack gap */
+  --weedlog-spacing-6: 24px; /** Comfortable — between sections within a card */
+  --weedlog-spacing-8: 32px; /** Spacious — between page sections */
+  --weedlog-spacing-12: 48px; /** Large — major section breaks */
+  --weedlog-spacing-16: 64px; /** Extra large — page padding, hero spacing */
+  --weedlog-radius-sm: 2px; /** Buttons, badges, inputs */
+  --weedlog-radius-md: 4px; /** Cards, panels */
+  --weedlog-radius-lg: 8px; /** Modals, large cards */
+  --weedlog-radius-full: 9999px; /** Pills, avatars */
+  --weedlog-border-width-thin: 1px; /** Default borders, dividers */
+  --weedlog-border-width-medium: 2px; /** Input borders, interactive outlines */
+  --weedlog-border-width-thick: 3px; /** Focus rings, emphasis */
+  --weedlog-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /** Subtle lift — cards */
+  --weedlog-shadow-md: 0 4px 6px 0 rgba(0, 0, 0, 0.07); /** Moderate lift — dropdowns */
+  --weedlog-shadow-lg: 0 10px 25px 0 rgba(0, 0, 0, 0.1); /** Strong lift — modals, dialogs */
+  --weedlog-container-sm: 384px; /** Narrow — auth forms, modals */
+  --weedlog-container-md: 672px; /** Medium — content pages */
+  --weedlog-container-lg: 1024px; /** Wide — dashboards */
+  --weedlog-container-xl: 1200px; /** Max width — site container */
+  --weedlog-focus-outline-offset: 2px; /** Space between element and focus ring */
+  --weedlog-transition-fast: 120ms ease 0ms; /** Micro-interactions — hover, focus */
+  --weedlog-transition-normal: 200ms ease 0ms; /** Standard transitions — expand, toggle */
+  --weedlog-transition-slow: 350ms ease 0ms; /** Layout shifts, page transitions */
+  --weedlog-z-dropdown: 100; /** Dropdowns, popovers */
+  --weedlog-z-sticky: 200; /** Sticky headers, nav */
+  --weedlog-z-modal: 300; /** Modals, dialogs */
+  --weedlog-z-toast: 400; /** Toasts, notifications — always on top */
+  --weedlog-typography-display-lg-font-family: 'Bricolage Grotesque', sans-serif; /** Hero headlines */
+  --weedlog-typography-display-lg-font-size: 48px; /** Hero headlines */
+  --weedlog-typography-display-lg-font-weight: 700; /** Hero headlines */
+  --weedlog-typography-display-lg-line-height: 1.2; /** Hero headlines */
+  --weedlog-typography-display-lg-letter-spacing: -0.025em; /** Hero headlines */
+  --weedlog-typography-display-font-family: 'Bricolage Grotesque', sans-serif; /** Page-level display text */
+  --weedlog-typography-display-font-size: 36px; /** Page-level display text */
+  --weedlog-typography-display-font-weight: 700; /** Page-level display text */
+  --weedlog-typography-display-line-height: 1.2; /** Page-level display text */
+  --weedlog-typography-display-letter-spacing: -0.025em; /** Page-level display text */
+  --weedlog-typography-heading-lg-font-family: 'Bricolage Grotesque', sans-serif; /** Primary heading (h1) */
+  --weedlog-typography-heading-lg-font-size: 30px; /** Primary heading (h1) */
+  --weedlog-typography-heading-lg-font-weight: 700; /** Primary heading (h1) */
+  --weedlog-typography-heading-lg-line-height: 1.2; /** Primary heading (h1) */
+  --weedlog-typography-heading-lg-letter-spacing: -0.025em; /** Primary heading (h1) */
+  --weedlog-typography-heading-font-family: 'Bricolage Grotesque', sans-serif; /** Section heading (h2) */
+  --weedlog-typography-heading-font-size: 24px; /** Section heading (h2) */
+  --weedlog-typography-heading-font-weight: 700; /** Section heading (h2) */
+  --weedlog-typography-heading-line-height: 1.2; /** Section heading (h2) */
+  --weedlog-typography-heading-letter-spacing: -0.025em; /** Section heading (h2) */
+  --weedlog-typography-heading-sm-font-family: 'Bricolage Grotesque', sans-serif; /** Sub-heading (h3) */
+  --weedlog-typography-heading-sm-font-size: 20px; /** Sub-heading (h3) */
+  --weedlog-typography-heading-sm-font-weight: 600; /** Sub-heading (h3) */
+  --weedlog-typography-heading-sm-line-height: 1.2; /** Sub-heading (h3) */
+  --weedlog-typography-heading-sm-letter-spacing: -0.025em; /** Sub-heading (h3) */
+  --weedlog-typography-body-lg-font-family: 'Bricolage Grotesque', sans-serif; /** Large body, card descriptions */
+  --weedlog-typography-body-lg-font-size: 18px; /** Large body, card descriptions */
+  --weedlog-typography-body-lg-font-weight: 400; /** Large body, card descriptions */
+  --weedlog-typography-body-lg-line-height: 1.5; /** Large body, card descriptions */
+  --weedlog-typography-body-lg-letter-spacing: 0em; /** Large body, card descriptions */
+  --weedlog-typography-body-font-family: 'Bricolage Grotesque', sans-serif; /** Default body text */
+  --weedlog-typography-body-font-size: 16px; /** Default body text */
+  --weedlog-typography-body-font-weight: 400; /** Default body text */
+  --weedlog-typography-body-line-height: 1.5; /** Default body text */
+  --weedlog-typography-body-letter-spacing: 0em; /** Default body text */
+  --weedlog-typography-body-sm-font-family: 'Bricolage Grotesque', sans-serif; /** Compact body text */
+  --weedlog-typography-body-sm-font-size: 14px; /** Compact body text */
+  --weedlog-typography-body-sm-font-weight: 400; /** Compact body text */
+  --weedlog-typography-body-sm-line-height: 1.5; /** Compact body text */
+  --weedlog-typography-body-sm-letter-spacing: 0em; /** Compact body text */
+  --weedlog-typography-emphasis-lg-font-family: 'Bricolage Grotesque', sans-serif; /** Key data, strong callouts at large body scale */
+  --weedlog-typography-emphasis-lg-font-size: 18px; /** Key data, strong callouts at large body scale */
+  --weedlog-typography-emphasis-lg-font-weight: 600; /** Key data, strong callouts at large body scale */
+  --weedlog-typography-emphasis-lg-line-height: 1.5; /** Key data, strong callouts at large body scale */
+  --weedlog-typography-emphasis-lg-letter-spacing: 0em; /** Key data, strong callouts at large body scale */
+  --weedlog-typography-emphasis-font-family: 'Bricolage Grotesque', sans-serif; /** Inline importance, key values */
+  --weedlog-typography-emphasis-font-size: 16px; /** Inline importance, key values */
+  --weedlog-typography-emphasis-font-weight: 600; /** Inline importance, key values */
+  --weedlog-typography-emphasis-line-height: 1.5; /** Inline importance, key values */
+  --weedlog-typography-emphasis-letter-spacing: 0em; /** Inline importance, key values */
+  --weedlog-typography-emphasis-sm-font-family: 'Bricolage Grotesque', sans-serif; /** Small emphasized text */
+  --weedlog-typography-emphasis-sm-font-size: 14px; /** Small emphasized text */
+  --weedlog-typography-emphasis-sm-font-weight: 600; /** Small emphasized text */
+  --weedlog-typography-emphasis-sm-line-height: 1.5; /** Small emphasized text */
+  --weedlog-typography-emphasis-sm-letter-spacing: 0em; /** Small emphasized text */
+  --weedlog-typography-label-font-family: 'Bricolage Grotesque', sans-serif; /** Buttons, nav items, form labels */
+  --weedlog-typography-label-font-size: 14px; /** Buttons, nav items, form labels */
+  --weedlog-typography-label-font-weight: 600; /** Buttons, nav items, form labels */
+  --weedlog-typography-label-line-height: 1.2; /** Buttons, nav items, form labels */
+  --weedlog-typography-label-letter-spacing: 0em; /** Buttons, nav items, form labels */
+  --weedlog-typography-label-sm-font-family: 'Bricolage Grotesque', sans-serif; /** Badges, tags, small interactive text */
+  --weedlog-typography-label-sm-font-size: 12px; /** Badges, tags, small interactive text */
+  --weedlog-typography-label-sm-font-weight: 600; /** Badges, tags, small interactive text */
+  --weedlog-typography-label-sm-line-height: 1.2; /** Badges, tags, small interactive text */
+  --weedlog-typography-label-sm-letter-spacing: 0em; /** Badges, tags, small interactive text */
+  --weedlog-typography-caption-font-family: 'Bricolage Grotesque', sans-serif; /** Helper text, timestamps, metadata */
+  --weedlog-typography-caption-font-size: 12px; /** Helper text, timestamps, metadata */
+  --weedlog-typography-caption-font-weight: 400; /** Helper text, timestamps, metadata */
+  --weedlog-typography-caption-line-height: 1.5; /** Helper text, timestamps, metadata */
+  --weedlog-typography-caption-letter-spacing: 0em; /** Helper text, timestamps, metadata */
+  --weedlog-typography-overline-font-family: 'Bricolage Grotesque', sans-serif; /** Section dividers, category labels (uppercase intent) */
+  --weedlog-typography-overline-font-size: 12px; /** Section dividers, category labels (uppercase intent) */
+  --weedlog-typography-overline-font-weight: 600; /** Section dividers, category labels (uppercase intent) */
+  --weedlog-typography-overline-line-height: 1.2; /** Section dividers, category labels (uppercase intent) */
+  --weedlog-typography-overline-letter-spacing: 0.05em; /** Section dividers, category labels (uppercase intent) */
+  --weedlog-typography-code-font-family: 'SF Mono', 'Fira Code', 'Fira Mono', monospace; /** Inline code, data values, monospace */
+  --weedlog-typography-code-font-size: 14px; /** Inline code, data values, monospace */
+  --weedlog-typography-code-font-weight: 400; /** Inline code, data values, monospace */
+  --weedlog-typography-code-line-height: 1.5; /** Inline code, data values, monospace */
+  --weedlog-typography-code-letter-spacing: 0em; /** Inline code, data values, monospace */
 }
