@@ -1,0 +1,269 @@
+.onboarding {
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+  background-color: var(--weedlog-color-bg-primary);
+}
+
+/* ── Topbar ─────────────────────────────────────────── */
+
+.onboarding-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--weedlog-spacing-4);
+  border-bottom: var(--weedlog-border-width-thin) solid var(--weedlog-color-border-default);
+  flex-shrink: 0;
+}
+
+.onboarding-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--weedlog-spacing-2);
+  color: var(--weedlog-color-brand-primary);
+}
+
+.onboarding-logo-icon {
+  flex-shrink: 0;
+}
+
+.onboarding-logo-text {
+  font-family: var(--weedlog-typography-emphasis-font-family);
+  font-size: var(--weedlog-typography-emphasis-font-size);
+  font-weight: var(--weedlog-typography-emphasis-font-weight);
+  line-height: var(--weedlog-typography-emphasis-line-height);
+  color: var(--weedlog-color-brand-primary);
+}
+
+.onboarding-help {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border: var(--weedlog-border-width-medium) solid var(--weedlog-color-text-muted);
+  border-radius: var(--weedlog-radius-full);
+  background: none;
+  font-family: var(--weedlog-typography-label-sm-font-family);
+  font-size: var(--weedlog-typography-label-sm-font-size);
+  font-weight: var(--weedlog-typography-label-sm-font-weight);
+  color: var(--weedlog-color-text-muted);
+  cursor: pointer;
+  outline: var(--weedlog-border-width-thick) solid transparent;
+  outline-offset: var(--weedlog-focus-outline-offset);
+  transition: outline-color var(--weedlog-transition-fast);
+}
+
+.onboarding-help:focus-visible {
+  outline-color: var(--weedlog-color-interactive-focus);
+}
+
+/* ── Content ─────────────────────────────────────────── */
+
+.onboarding-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--weedlog-spacing-8);
+  padding: var(--weedlog-spacing-8) var(--weedlog-spacing-4);
+  flex: 1;
+}
+
+.onboarding-heading {
+  display: flex;
+  flex-direction: column;
+}
+
+.onboarding-title {
+  font-family: var(--weedlog-typography-display-font-family);
+  font-size: var(--weedlog-typography-display-font-size);
+  font-weight: var(--weedlog-typography-display-font-weight);
+  line-height: var(--weedlog-typography-display-line-height);
+  letter-spacing: var(--weedlog-typography-display-letter-spacing);
+  color: var(--weedlog-color-text-primary);
+}
+
+.onboarding-subtitle {
+  font-family: var(--weedlog-typography-heading-sm-font-family);
+  font-size: var(--weedlog-typography-heading-sm-font-size);
+  font-weight: var(--weedlog-typography-heading-sm-font-weight);
+  line-height: var(--weedlog-typography-heading-sm-line-height);
+  letter-spacing: var(--weedlog-typography-heading-sm-letter-spacing);
+  color: var(--weedlog-color-text-muted);
+}
+
+/* ── Inline method picker ───────────────────────────── */
+
+.onboarding-description {
+  font-family: var(--weedlog-typography-body-font-family);
+  font-size: var(--weedlog-typography-body-font-size);
+  font-weight: var(--weedlog-typography-body-font-weight);
+  line-height: var(--weedlog-typography-body-line-height);
+  color: var(--weedlog-color-text-primary);
+}
+
+.onboarding-method-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: baseline;
+}
+
+.onboarding-method-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--weedlog-spacing-1);
+  padding: var(--weedlog-spacing-1) 0;
+  background: none;
+  border: none;
+  border-bottom: var(--weedlog-border-width-thin) solid var(--weedlog-color-text-muted);
+  cursor: pointer;
+  font-family: var(--weedlog-typography-emphasis-font-family);
+  font-size: var(--weedlog-typography-emphasis-font-size);
+  font-weight: var(--weedlog-typography-emphasis-font-weight);
+  line-height: var(--weedlog-typography-emphasis-line-height);
+  color: var(--weedlog-color-text-primary);
+  outline: var(--weedlog-border-width-thick) solid transparent;
+  outline-offset: var(--weedlog-focus-outline-offset);
+  transition:
+    color var(--weedlog-transition-fast),
+    border-color var(--weedlog-transition-fast),
+    outline-color var(--weedlog-transition-fast);
+}
+
+.onboarding-method-trigger:hover {
+  color: var(--weedlog-color-brand-primary);
+  border-bottom-color: var(--weedlog-color-brand-primary);
+}
+
+.onboarding-method-trigger:focus-visible {
+  outline-color: var(--weedlog-color-interactive-focus);
+}
+
+.onboarding-chevron {
+  transition: transform var(--weedlog-transition-fast);
+}
+
+.onboarding-method-trigger[aria-expanded='true'] .onboarding-chevron {
+  transform: rotate(180deg);
+}
+
+/* ── Dropdown ───────────────────────────────────────── */
+
+.onboarding-dropdown {
+  position: absolute;
+  top: calc(100% + var(--weedlog-spacing-2));
+  left: 0;
+  min-width: 190px;
+  list-style: none;
+  background: var(--weedlog-color-surface-elevated);
+  border: var(--weedlog-border-width-thin) solid var(--weedlog-color-border-default);
+  border-radius: var(--weedlog-radius-md);
+  box-shadow: var(--weedlog-shadow-md);
+  z-index: var(--weedlog-z-dropdown);
+  padding: var(--weedlog-spacing-1) 0;
+  overflow: hidden;
+}
+
+.onboarding-dropdown-option {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: var(--weedlog-spacing-2) var(--weedlog-spacing-4);
+  font-family: var(--weedlog-typography-body-font-family);
+  font-size: var(--weedlog-typography-body-font-size);
+  font-weight: var(--weedlog-typography-body-font-weight);
+  line-height: var(--weedlog-typography-body-line-height);
+  color: var(--weedlog-color-text-primary);
+  cursor: pointer;
+  transition: background-color var(--weedlog-transition-fast);
+}
+
+.onboarding-dropdown-option:hover {
+  background-color: var(--weedlog-color-bg-secondary);
+}
+
+[role='option'][aria-selected='true'] .onboarding-dropdown-option {
+  font-weight: var(--weedlog-typography-emphasis-font-weight);
+  color: var(--weedlog-color-brand-primary);
+}
+
+/* ── Actions ────────────────────────────────────────── */
+
+.onboarding-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--weedlog-spacing-4);
+}
+
+.onboarding-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--weedlog-spacing-2);
+  width: 100%;
+  height: 48px;
+  border: var(--weedlog-border-width-medium) solid var(--weedlog-color-brand-primary);
+  border-radius: var(--weedlog-radius-md);
+  background-color: var(--weedlog-color-brand-primary);
+  font-family: var(--weedlog-typography-label-font-family);
+  font-size: var(--weedlog-typography-label-font-size);
+  font-weight: var(--weedlog-typography-label-font-weight);
+  line-height: var(--weedlog-typography-label-line-height);
+  color: var(--weedlog-color-text-on-brand);
+  cursor: pointer;
+  outline: var(--weedlog-border-width-thick) solid transparent;
+  outline-offset: var(--weedlog-focus-outline-offset);
+  transition:
+    background-color var(--weedlog-transition-normal),
+    border-color var(--weedlog-transition-normal),
+    outline-color var(--weedlog-transition-normal);
+}
+
+.onboarding-cta:hover {
+  background-color: var(--weedlog-color-brand-primary-hover);
+  border-color: var(--weedlog-color-brand-primary-hover);
+}
+
+.onboarding-cta:active {
+  background-color: var(--weedlog-color-brand-primary-active);
+  border-color: var(--weedlog-color-brand-primary-active);
+}
+
+.onboarding-cta:focus-visible {
+  outline-color: var(--weedlog-color-interactive-focus);
+  animation: onboarding-focus-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes onboarding-focus-pulse {
+  0%, 100% {
+    outline-color: var(--weedlog-color-interactive-focus);
+  }
+  50% {
+    outline-color: color-mix(in srgb, var(--weedlog-color-interactive-focus) 60%, var(--weedlog-color-brand-primary));
+  }
+}
+
+.onboarding-skip {
+  padding: 0;
+  background: none;
+  border: none;
+  font-family: var(--weedlog-typography-label-font-family);
+  font-size: var(--weedlog-typography-label-font-size);
+  font-weight: var(--weedlog-typography-label-font-weight);
+  line-height: var(--weedlog-typography-label-line-height);
+  color: var(--weedlog-color-text-muted);
+  text-decoration: underline;
+  cursor: pointer;
+  outline: var(--weedlog-border-width-thick) solid transparent;
+  outline-offset: var(--weedlog-focus-outline-offset);
+  transition:
+    color var(--weedlog-transition-fast),
+    outline-color var(--weedlog-transition-fast);
+}
+
+.onboarding-skip:focus-visible {
+  outline-color: var(--weedlog-color-interactive-focus);
+}
