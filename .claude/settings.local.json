@@ -11,7 +11,16 @@
       "Bash(npm run lint:*)",
       "Bash(git status:*)",
       "Bash(git add:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "WebSearch",
+      "WebFetch(domain:tr.designtokens.org)",
+      "WebFetch(domain:styledictionary.com)",
+      "WebFetch(domain:www.designtokens.org)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:design-tokens.github.io)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:docs.tokens.studio)",
+      "Bash(npm run tokens:build:*)"
     ]
   }
 }

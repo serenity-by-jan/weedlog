@@ -1,13 +1,61 @@
+import { useEffect, useRef, useState } from 'react';
 import './FontSampler.css';
 
-interface TokenRow {
+/* ------------------------------------------------------------------ */
+/*  Data                                                               */
+/* ------------------------------------------------------------------ */
+
+interface TypographyStyle {
   name: string;
-  value: string;
+  description: string;
+  fontFamily: string;
+  fontSize: string;
+  fontWeight: number;
+  lineHeight: number;
+  letterSpacing: string;
 }
 
-function getTokenRows(): Record<string, TokenRow[]> {
+const typographyStyles: TypographyStyle[] = [
+  { name: 'display-lg', description: 'Hero headlines', fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: '48px', fontWeight: 700, lineHeight: 1.2, letterSpacing: '-0.025em' },
+  { name: 'display', description: 'Page-level display text', fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: '36px', fontWeight: 700, lineHeight: 1.2, letterSpacing: '-0.025em' },
+  { name: 'heading-lg', description: 'Primary heading (h1)', fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: '30px', fontWeight: 700, lineHeight: 1.2, letterSpacing: '-0.025em' },
+  { name: 'heading', description: 'Section heading (h2)', fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: '24px', fontWeight: 700, lineHeight: 1.2, letterSpacing: '-0.025em' },
+  { name: 'heading-sm', description: 'Sub-heading (h3)', fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: '20px', fontWeight: 600, lineHeight: 1.2, letterSpacing: '-0.025em' },
+  { name: 'body-lg', description: 'Large body, card descriptions', fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: '18px', fontWeight: 400, lineHeight: 1.5, letterSpacing: '0em' },
+  { name: 'body', description: 'Default body text', fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: '16px', fontWeight: 400, lineHeight: 1.5, letterSpacing: '0em' },
+  { name: 'body-sm', description: 'Compact body text', fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: '14px', fontWeight: 400, lineHeight: 1.5, letterSpacing: '0em' },
+  { name: 'emphasis-lg', description: 'Key data, strong callouts at large body scale', fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: '18px', fontWeight: 600, lineHeight: 1.5, letterSpacing: '0em' },
+  { name: 'emphasis', description: 'Inline importance, key values', fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: '16px', fontWeight: 600, lineHeight: 1.5, letterSpacing: '0em' },
+  { name: 'emphasis-sm', description: 'Small emphasized text', fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: '14px', fontWeight: 600, lineHeight: 1.5, letterSpacing: '0em' },
+  { name: 'label', description: 'Buttons, nav items, form labels', fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: '14px', fontWeight: 600, lineHeight: 1.2, letterSpacing: '0em' },
+  { name: 'label-sm', description: 'Badges, tags, small interactive text', fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: '12px', fontWeight: 600, lineHeight: 1.2, letterSpacing: '0em' },
+  { name: 'caption', description: 'Helper text, timestamps, metadata', fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: '12px', fontWeight: 400, lineHeight: 1.5, letterSpacing: '0em' },
+  { name: 'overline', description: 'Section dividers, category labels (uppercase intent)', fontFamily: "'Bricolage Grotesque', sans-serif", fontSize: '12px', fontWeight: 600, lineHeight: 1.2, letterSpacing: '0.05em' },
+  { name: 'code', description: 'Inline code, data values, monospace', fontFamily: "'SF Mono', 'Fira Code', 'Fira Mono', monospace", fontSize: '14px', fontWeight: 400, lineHeight: 1.5, letterSpacing: '0em' },
+];
+
+interface ColorToken { name: string; value: string; }
+interface TokenRow { name: string; value: string; description?: string; }
+
+const sections = [
+  { id: 'typography', label: 'Typography' },
+  { id: 'colors', label: 'Colors' },
+  { id: 'spacing', label: 'Spacing' },
+  { id: 'radius', label: 'Radius' },
+  { id: 'borders', label: 'Borders' },
+  { id: 'shadows', label: 'Shadows' },
+  { id: 'containers', label: 'Containers' },
+  { id: 'transitions', label: 'Transitions' },
+  { id: 'z-index', label: 'Z-Index' },
+];
+
+/* ------------------------------------------------------------------ */
+/*  Token extraction helpers                                           */
+/* ------------------------------------------------------------------ */
+
+function getTokensByPrefix(prefix: string): TokenRow[] {
   const style = getComputedStyle(document.documentElement);
-  const groups: Record<string, TokenRow[]> = {};
+  const tokens: TokenRow[] = [];
 
   for (const sheet of document.styleSheets) {
     try {
@@ -15,129 +63,342 @@ function getTokenRows(): Record<string, TokenRow[]> {
         if (rule instanceof CSSStyleRule && rule.selectorText === ':root') {
           for (let i = 0; i < rule.style.length; i++) {
             const prop = rule.style[i];
-            if (!prop.startsWith('--')) continue;
+            if (!prop.startsWith(`--${prefix}`)) continue;
+            // skip typography composites (they expand to individual props)
+            if (prefix !== 'typography-' && prop.startsWith('--typography-')) continue;
+            tokens.push({ name: prop, value: style.getPropertyValue(prop).trim() });
+          }
+        }
+      }
+    } catch { /* skip cross-origin */ }
+  }
+  return tokens;
+}
+
+function getColorTokensGrouped(): Record<string, ColorToken[]> {
+  const style = getComputedStyle(document.documentElement);
+  const groups: Record<string, ColorToken[]> = {};
+  const groupOrder = ['bg', 'surface', 'text', 'brand', 'border', 'interactive', 'semantic', 'overlay'];
+
+  for (const sheet of document.styleSheets) {
+    try {
+      for (const rule of sheet.cssRules) {
+        if (rule instanceof CSSStyleRule && rule.selectorText === ':root') {
+          for (let i = 0; i < rule.style.length; i++) {
+            const prop = rule.style[i];
+            if (!prop.startsWith('--color-')) continue;
             const value = style.getPropertyValue(prop).trim();
-            // Group: first 2 segments for color-*, first 1 for everything else
-            const stripped = prop.slice(2);
-            const isColor = stripped.startsWith('color-');
-            const parts = stripped.split('-');
-            const group = parts.slice(0, isColor ? 2 : 1).join('-');
+            const parts = prop.slice(8).split('-'); // after --color-
+            const group = parts[0];
             if (!groups[group]) groups[group] = [];
             groups[group].push({ name: prop, value });
           }
         }
       }
-    } catch {
-      // skip cross-origin
-    }
+    } catch { /* skip cross-origin */ }
   }
-  return groups;
+
+  // Sort by defined order
+  const sorted: Record<string, ColorToken[]> = {};
+  for (const g of groupOrder) {
+    if (groups[g]) sorted[g] = groups[g];
+  }
+  return sorted;
 }
 
-function Preview({ name, value }: { name: string; value: string }) {
-  const isColor = value.startsWith('#') || value.startsWith('rgb');
-  const isSize = /^\d/.test(value) && (value.endsWith('px') || value.endsWith('em') || value.endsWith('%'));
-  const isNumeric = /^[\d.]+$/.test(value);
-  const isShadow = name.includes('shadow');
-  const isRadius = name.includes('radius');
-  const isBorderWidth = name.includes('border-width');
-  const isTransition = name.includes('transition');
-  const isFont = name.includes('font-family') || name.includes('font-weight');
-  const isLetterSpacing = name.includes('letter-spacing');
-  const isLineHeight = name.includes('line-height');
-  const isFontSize = name.includes('font-size');
-  const isSpacing = name.includes('spacing');
-  const isZ = name.startsWith('--z-');
-  const isContainer = name.includes('container');
+/* ------------------------------------------------------------------ */
+/*  Section components                                                 */
+/* ------------------------------------------------------------------ */
 
-  if (isColor) {
-    return <span className="preview-color" style={{ background: value }} />;
-  }
-  if (isShadow) {
-    return <span className="preview-shadow" style={{ boxShadow: value }} />;
-  }
-  if (isRadius) {
-    return <span className="preview-radius" style={{ borderRadius: value }} />;
-  }
-  if (isBorderWidth) {
-    return <span className="preview-border-width" style={{ borderWidth: value }} />;
-  }
-  if (isFontSize) {
-    return <span className="preview-font-size" style={{ fontSize: value, height: value }}>Ag</span>;
-  }
-  if (isLineHeight) {
-    return <span className="preview-line-height" style={{ lineHeight: value }}>A<br/>g</span>;
-  }
-  if (isLetterSpacing) {
-    return <span className="preview-letter-spacing" style={{ letterSpacing: value }}>ABC</span>;
-  }
-  if (isFont) {
-    const style = name.includes('weight')
-      ? { fontWeight: value as unknown as number }
-      : { fontFamily: value };
-    return <span className="preview-font" style={style}>Ag</span>;
-  }
-  if (isSpacing || isContainer) {
-    return <span className="preview-bar" style={{ width: `min(${value}, 100%)` }} />;
-  }
-  if (isTransition) {
-    return <span className="preview-pill">transition</span>;
-  }
-  if (isZ || isNumeric) {
-    return <span className="preview-pill">{value}</span>;
-  }
-  if (isSize) {
-    return <span className="preview-bar" style={{ width: `min(${value}, 100%)` }} />;
-  }
-  return <span className="preview-pill">{value}</span>;
-}
-
-function TokenTable({ tokens }: { tokens: TokenRow[] }) {
+function TypographySection() {
   return (
-    <div className="token-rows">
-      {tokens.map((t) => (
-        <div className="token-row" key={t.name}>
-          <span className="token-preview-cell">
-            <Preview name={t.name} value={t.value} />
-          </span>
-          <span className="token-name">{t.name}</span>
-          <span className="token-value">{t.value}</span>
-        </div>
-      ))}
-    </div>
+    <section id="typography" className="dr-section">
+      <h2 className="dr-section-title">Typography</h2>
+      <p className="dr-section-desc">
+        16 composite typography styles — each bundles font family, size, weight, line height, and letter spacing.
+      </p>
+      <div className="dr-type-specimens">
+        {typographyStyles.map((t) => (
+          <div key={t.name} className="dr-type-specimen">
+            <div className="dr-type-specimen-header">
+              <span className="dr-type-name">{t.name}</span>
+              <span className="dr-type-desc">{t.description}</span>
+            </div>
+            <div className="dr-type-props">
+              <span>{t.fontSize}</span>
+              <span>/</span>
+              <span>{t.lineHeight}</span>
+              <span className="dr-type-prop-sep">·</span>
+              <span>w{t.fontWeight}</span>
+              <span className="dr-type-prop-sep">·</span>
+              <span>{t.letterSpacing === '0em' ? '0' : t.letterSpacing}</span>
+            </div>
+            <p
+              className="dr-type-sample"
+              style={{
+                fontFamily: t.fontFamily,
+                fontSize: t.fontSize,
+                fontWeight: t.fontWeight,
+                lineHeight: t.lineHeight,
+                letterSpacing: t.letterSpacing,
+              }}
+            >
+              The quick brown fox jumps over the lazy dog
+            </p>
+          </div>
+        ))}
+      </div>
+    </section>
   );
 }
 
-function TokenReference() {
-  const groups = getTokenRows();
-  const order = [
-    'color-bg', 'color-surface', 'color-text', 'color-brand',
-    'color-border', 'color-interactive', 'color-semantic', 'color-overlay',
-    'spacing', 'font', 'radius', 'border', 'shadow', 'container',
-    'focus', 'transition', 'z',
-  ];
-  const sorted = order.filter((g) => groups[g]);
-  const remaining = Object.keys(groups).filter((g) => !order.includes(g));
+function ColorsSection() {
+  const groups = getColorTokensGrouped();
 
   return (
-    <div className="token-reference">
-      {[...sorted, ...remaining].map((group) => (
-        <div key={group} className="token-group">
-          <h3>{group}</h3>
-          <TokenTable tokens={groups[group]} />
+    <section id="colors" className="dr-section">
+      <h2 className="dr-section-title">Colors</h2>
+      <p className="dr-section-desc">All color tokens grouped by role.</p>
+      {Object.entries(groups).map(([group, tokens]) => (
+        <div key={group} className="dr-color-group">
+          <h3 className="dr-color-group-title">{group}</h3>
+          <div className="dr-color-swatches">
+            {tokens.map((t) => (
+              <div key={t.name} className="dr-color-swatch">
+                <span className="dr-color-chip" style={{ background: t.value }} />
+                <span className="dr-color-name">{t.name.slice(2)}</span>
+                <span className="dr-color-value">{t.value}</span>
+              </div>
+            ))}
+          </div>
         </div>
       ))}
-    </div>
+    </section>
   );
 }
+
+function SpacingSection() {
+  const tokens = getTokensByPrefix('spacing-');
+  return (
+    <section id="spacing" className="dr-section">
+      <h2 className="dr-section-title">Spacing</h2>
+      <p className="dr-section-desc">Spacing scale used for padding, margins, and gaps.</p>
+      <div className="dr-spacing-list">
+        {tokens.map((t) => (
+          <div key={t.name} className="dr-spacing-row">
+            <span className="dr-spacing-label">{t.name.slice(2)}</span>
+            <span className="dr-spacing-value">{t.value}</span>
+            <span className="dr-spacing-bar" style={{ width: t.value }} />
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function RadiusSection() {
+  const tokens = getTokensByPrefix('radius-');
+  return (
+    <section id="radius" className="dr-section">
+      <h2 className="dr-section-title">Radius</h2>
+      <p className="dr-section-desc">Border radius values for rounding corners.</p>
+      <div className="dr-radius-list">
+        {tokens.map((t) => (
+          <div key={t.name} className="dr-radius-row">
+            <span className="dr-radius-box" style={{ borderRadius: t.value }} />
+            <span className="dr-radius-label">{t.name.slice(2)}</span>
+            <span className="dr-radius-value">{t.value}</span>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function BordersSection() {
+  const tokens = getTokensByPrefix('border-width-');
+  return (
+    <section id="borders" className="dr-section">
+      <h2 className="dr-section-title">Borders</h2>
+      <p className="dr-section-desc">Border width tokens.</p>
+      <div className="dr-borders-list">
+        {tokens.map((t) => (
+          <div key={t.name} className="dr-border-row">
+            <span className="dr-border-line" style={{ borderBottomWidth: t.value }} />
+            <span className="dr-border-label">{t.name.slice(2)}</span>
+            <span className="dr-border-value">{t.value}</span>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function ShadowsSection() {
+  const tokens = getTokensByPrefix('shadow-');
+  return (
+    <section id="shadows" className="dr-section">
+      <h2 className="dr-section-title">Shadows</h2>
+      <p className="dr-section-desc">Elevation levels for cards, dropdowns, and modals.</p>
+      <div className="dr-shadows-list">
+        {tokens.map((t) => (
+          <div key={t.name} className="dr-shadow-card" style={{ boxShadow: t.value }}>
+            <span className="dr-shadow-label">{t.name.slice(2)}</span>
+            <span className="dr-shadow-value">{t.value}</span>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function ContainersSection() {
+  const tokens = getTokensByPrefix('container-');
+  const maxVal = 1200; // xl container
+  return (
+    <section id="containers" className="dr-section">
+      <h2 className="dr-section-title">Containers</h2>
+      <p className="dr-section-desc">Max-width values for layout containers.</p>
+      <div className="dr-container-list">
+        {tokens.map((t) => {
+          const px = parseInt(t.value, 10);
+          const pct = (px / maxVal) * 100;
+          return (
+            <div key={t.name} className="dr-container-row">
+              <span className="dr-container-label">{t.name.slice(2)}</span>
+              <span className="dr-container-value">{t.value}</span>
+              <span className="dr-container-bar" style={{ width: `${pct}%` }} />
+            </div>
+          );
+        })}
+      </div>
+    </section>
+  );
+}
+
+function TransitionsSection() {
+  const tokens = getTokensByPrefix('transition-');
+  return (
+    <section id="transitions" className="dr-section">
+      <h2 className="dr-section-title">Transitions</h2>
+      <p className="dr-section-desc">Hover over each box to see the transition speed in action.</p>
+      <div className="dr-transition-list">
+        {tokens.map((t) => (
+          <div
+            key={t.name}
+            className="dr-transition-box"
+            style={{ transition: `background-color ${t.value}, transform ${t.value}` }}
+          >
+            <span className="dr-transition-label">{t.name.slice(2)}</span>
+            <span className="dr-transition-value">{t.value}</span>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function ZIndexSection() {
+  const tokens = getTokensByPrefix('z-');
+  return (
+    <section id="z-index" className="dr-section">
+      <h2 className="dr-section-title">Z-Index</h2>
+      <p className="dr-section-desc">Stacking order for layered UI elements.</p>
+      <div className="dr-z-list">
+        {tokens.map((t) => (
+          <div key={t.name} className="dr-z-pill">
+            <span className="dr-z-value">{t.value}</span>
+            <span className="dr-z-label">{t.name.slice(4)}</span>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/*  Navigation                                                         */
+/* ------------------------------------------------------------------ */
+
+function SideNav({ activeId }: { activeId: string }) {
+  return (
+    <nav className="dr-nav" aria-label="Design reference sections">
+      <div className="dr-nav-logo" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="28" height="28">
+          <g fill="none" stroke="currentColor" strokeWidth="18" strokeLinecap="round" transform="rotate(-15, 100, 100)">
+            <line x1="100" y1="100" x2="100" y2="35"/>
+            <line x1="100" y1="100" x2="162" y2="55"/>
+            <line x1="100" y1="100" x2="138" y2="135"/>
+            <line x1="100" y1="100" x2="62" y2="135"/>
+            <line x1="100" y1="100" x2="38" y2="55"/>
+            <line x1="100" y1="100" x2="100" y2="168"/>
+          </g>
+        </svg>
+      </div>
+      {sections.map((s) => (
+        <a
+          key={s.id}
+          href={`#${s.id}`}
+          className={`dr-nav-item ${activeId === s.id ? 'dr-nav-item--active' : ''}`}
+          onClick={(e) => {
+            e.preventDefault();
+            document.getElementById(s.id)?.scrollIntoView({ behavior: 'smooth' });
+          }}
+        >
+          {s.label}
+        </a>
+      ))}
+    </nav>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/*  Main component                                                     */
+/* ------------------------------------------------------------------ */
 
 export default function FontSampler() {
-  return (
-    <div className="sampler">
-      <h1>Weedlog Design Reference</h1>
+  const [activeId, setActiveId] = useState(sections[0].id);
+  const observerRef = useRef<IntersectionObserver | null>(null);
 
-      <h2>Design Tokens</h2>
-      <TokenReference />
+  useEffect(() => {
+    observerRef.current = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            setActiveId(entry.target.id);
+          }
+        }
+      },
+      { rootMargin: '-20% 0px -60% 0px' }
+    );
+
+    for (const s of sections) {
+      const el = document.getElementById(s.id);
+      if (el) observerRef.current.observe(el);
+    }
+
+    return () => observerRef.current?.disconnect();
+  }, []);
+
+  return (
+    <div className="dr-layout">
+      <SideNav activeId={activeId} />
+      <main className="dr-main">
+        <header className="dr-header">
+          <h1 className="dr-title">Design Reference</h1>
+          <p className="dr-subtitle">Weedlog design tokens and typography system</p>
+        </header>
+
+        <TypographySection />
+        <ColorsSection />
+        <SpacingSection />
+        <RadiusSection />
+        <BordersSection />
+        <ShadowsSection />
+        <ContainersSection />
+        <TransitionsSection />
+        <ZIndexSection />
+      </main>
     </div>
   );
 }

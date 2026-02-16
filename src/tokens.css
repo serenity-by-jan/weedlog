@@ -42,6 +42,7 @@
   --spacing-16: 64px; /** Extra large — page padding, hero spacing */
   --font-family-sans: 'Bricolage Grotesque', sans-serif; /** Primary typeface for all UI */
   --font-family-mono: 'SF Mono', 'Fira Code', 'Fira Mono', monospace; /** Code and data */
+  --font-weight-light: 300;
   --font-weight-regular: 400;
   --font-weight-medium: 600;
   --font-weight-bold: 700;
@@ -82,4 +83,84 @@
   --z-sticky: 200; /** Sticky headers, nav */
   --z-modal: 300; /** Modals, dialogs */
   --z-toast: 400; /** Toasts, notifications — always on top */
+  --typography-display-lg-font-family: 'Bricolage Grotesque', sans-serif; /** Hero headlines */
+  --typography-display-lg-font-size: 48px; /** Hero headlines */
+  --typography-display-lg-font-weight: 700; /** Hero headlines */
+  --typography-display-lg-line-height: 1.2; /** Hero headlines */
+  --typography-display-lg-letter-spacing: -0.025em; /** Hero headlines */
+  --typography-display-font-family: 'Bricolage Grotesque', sans-serif; /** Page-level display text */
+  --typography-display-font-size: 36px; /** Page-level display text */
+  --typography-display-font-weight: 700; /** Page-level display text */
+  --typography-display-line-height: 1.2; /** Page-level display text */
+  --typography-display-letter-spacing: -0.025em; /** Page-level display text */
+  --typography-heading-lg-font-family: 'Bricolage Grotesque', sans-serif; /** Primary heading (h1) */
+  --typography-heading-lg-font-size: 30px; /** Primary heading (h1) */
+  --typography-heading-lg-font-weight: 700; /** Primary heading (h1) */
+  --typography-heading-lg-line-height: 1.2; /** Primary heading (h1) */
+  --typography-heading-lg-letter-spacing: -0.025em; /** Primary heading (h1) */
+  --typography-heading-font-family: 'Bricolage Grotesque', sans-serif; /** Section heading (h2) */
+  --typography-heading-font-size: 24px; /** Section heading (h2) */
+  --typography-heading-font-weight: 700; /** Section heading (h2) */
+  --typography-heading-line-height: 1.2; /** Section heading (h2) */
+  --typography-heading-letter-spacing: -0.025em; /** Section heading (h2) */
+  --typography-heading-sm-font-family: 'Bricolage Grotesque', sans-serif; /** Sub-heading (h3) */
+  --typography-heading-sm-font-size: 20px; /** Sub-heading (h3) */
+  --typography-heading-sm-font-weight: 600; /** Sub-heading (h3) */
+  --typography-heading-sm-line-height: 1.2; /** Sub-heading (h3) */
+  --typography-heading-sm-letter-spacing: -0.025em; /** Sub-heading (h3) */
+  --typography-body-lg-font-family: 'Bricolage Grotesque', sans-serif; /** Large body, card descriptions */
+  --typography-body-lg-font-size: 18px; /** Large body, card descriptions */
+  --typography-body-lg-font-weight: 400; /** Large body, card descriptions */
+  --typography-body-lg-line-height: 1.5; /** Large body, card descriptions */
+  --typography-body-lg-letter-spacing: 0em; /** Large body, card descriptions */
+  --typography-body-font-family: 'Bricolage Grotesque', sans-serif; /** Default body text */
+  --typography-body-font-size: 16px; /** Default body text */
+  --typography-body-font-weight: 400; /** Default body text */
+  --typography-body-line-height: 1.5; /** Default body text */
+  --typography-body-letter-spacing: 0em; /** Default body text */
+  --typography-body-sm-font-family: 'Bricolage Grotesque', sans-serif; /** Compact body text */
+  --typography-body-sm-font-size: 14px; /** Compact body text */
+  --typography-body-sm-font-weight: 400; /** Compact body text */
+  --typography-body-sm-line-height: 1.5; /** Compact body text */
+  --typography-body-sm-letter-spacing: 0em; /** Compact body text */
+  --typography-emphasis-lg-font-family: 'Bricolage Grotesque', sans-serif; /** Key data, strong callouts at large body scale */
+  --typography-emphasis-lg-font-size: 18px; /** Key data, strong callouts at large body scale */
+  --typography-emphasis-lg-font-weight: 600; /** Key data, strong callouts at large body scale */
+  --typography-emphasis-lg-line-height: 1.5; /** Key data, strong callouts at large body scale */
+  --typography-emphasis-lg-letter-spacing: 0em; /** Key data, strong callouts at large body scale */
+  --typography-emphasis-font-family: 'Bricolage Grotesque', sans-serif; /** Inline importance, key values */
+  --typography-emphasis-font-size: 16px; /** Inline importance, key values */
+  --typography-emphasis-font-weight: 600; /** Inline importance, key values */
+  --typography-emphasis-line-height: 1.5; /** Inline importance, key values */
+  --typography-emphasis-letter-spacing: 0em; /** Inline importance, key values */
+  --typography-emphasis-sm-font-family: 'Bricolage Grotesque', sans-serif; /** Small emphasized text */
+  --typography-emphasis-sm-font-size: 14px; /** Small emphasized text */
+  --typography-emphasis-sm-font-weight: 600; /** Small emphasized text */
+  --typography-emphasis-sm-line-height: 1.5; /** Small emphasized text */
+  --typography-emphasis-sm-letter-spacing: 0em; /** Small emphasized text */
+  --typography-label-font-family: 'Bricolage Grotesque', sans-serif; /** Buttons, nav items, form labels */
+  --typography-label-font-size: 14px; /** Buttons, nav items, form labels */
+  --typography-label-font-weight: 600; /** Buttons, nav items, form labels */
+  --typography-label-line-height: 1.2; /** Buttons, nav items, form labels */
+  --typography-label-letter-spacing: 0em; /** Buttons, nav items, form labels */
+  --typography-label-sm-font-family: 'Bricolage Grotesque', sans-serif; /** Badges, tags, small interactive text */
+  --typography-label-sm-font-size: 12px; /** Badges, tags, small interactive text */
+  --typography-label-sm-font-weight: 600; /** Badges, tags, small interactive text */
+  --typography-label-sm-line-height: 1.2; /** Badges, tags, small interactive text */
+  --typography-label-sm-letter-spacing: 0em; /** Badges, tags, small interactive text */
+  --typography-caption-font-family: 'Bricolage Grotesque', sans-serif; /** Helper text, timestamps, metadata */
+  --typography-caption-font-size: 12px; /** Helper text, timestamps, metadata */
+  --typography-caption-font-weight: 400; /** Helper text, timestamps, metadata */
+  --typography-caption-line-height: 1.5; /** Helper text, timestamps, metadata */
+  --typography-caption-letter-spacing: 0em; /** Helper text, timestamps, metadata */
+  --typography-overline-font-family: 'Bricolage Grotesque', sans-serif; /** Section dividers, category labels (uppercase intent) */
+  --typography-overline-font-size: 12px; /** Section dividers, category labels (uppercase intent) */
+  --typography-overline-font-weight: 600; /** Section dividers, category labels (uppercase intent) */
+  --typography-overline-line-height: 1.2; /** Section dividers, category labels (uppercase intent) */
+  --typography-overline-letter-spacing: 0.05em; /** Section dividers, category labels (uppercase intent) */
+  --typography-code-font-family: 'SF Mono', 'Fira Code', 'Fira Mono', monospace; /** Inline code, data values, monospace */
+  --typography-code-font-size: 14px; /** Inline code, data values, monospace */
+  --typography-code-font-weight: 400; /** Inline code, data values, monospace */
+  --typography-code-line-height: 1.5; /** Inline code, data values, monospace */
+  --typography-code-letter-spacing: 0em; /** Inline code, data values, monospace */
 }

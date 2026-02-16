@@ -3,6 +3,9 @@ import StyleDictionary from 'style-dictionary';
 const sd = new StyleDictionary({
   source: ['tokens/tokens.json'],
   preprocessors: ['tokens-studio'],
+  expand: {
+    include: ['typography'],
+  },
   platforms: {
     css: {
       transformGroup: 'css',
