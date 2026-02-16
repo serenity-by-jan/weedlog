@@ -10,9 +10,9 @@
   border-radius: var(--radius-sm);
   background-color: var(--color-brand-primary);
   color: var(--color-text-on-brand);
-  font-family: var(--font-family-sans);
-  font-weight: var(--font-weight-regular);
-  font-size: var(--font-size-base);
+  font-family: var(--typography-body-font-family);
+  font-weight: var(--typography-body-font-weight);
+  font-size: var(--typography-body-font-size);
   line-height: 1;
   text-align: center;
   white-space: nowrap;
@@ -50,7 +50,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: var(--font-size-base);
-  height: var(--font-size-base);
+  width: var(--typography-body-font-size);
+  height: var(--typography-body-font-size);
   flex-shrink: 0;
 }

@@ -29,13 +29,13 @@
 }
 
 .landing-title {
-  font-family: var(--font-family-sans);
-  font-weight: var(--font-weight-bold);
-  font-size: var(--font-size-5xl);
+  font-family: var(--typography-body-font-family);
+  font-weight: var(--typography-heading-font-weight);
+  font-size: var(--typography-display-lg-font-size);
   line-height: 1;
   color: var(--color-text-inverse);
   text-align: center;
-  letter-spacing: var(--font-letter-spacing-tight);
+  letter-spacing: var(--typography-heading-letter-spacing);
   margin: 0;
 }
 
