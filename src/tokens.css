@@ -1,5 +1,8 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
 :root {
-  /* Colors */
   --color-primary: #016630;
   --color-primary-invert: #dcfce7;
   --color-hover: #008236;
@@ -12,42 +15,26 @@
   --color-overlay-0: rgba(0, 0, 0, 0);
   --color-overlay-25: rgba(0, 0, 0, 0.25);
   --color-overlay-50: rgba(0, 0, 0, 0.5);
-
-  /* Spacing */
+  --blur-none: 0px;
+  --blur-xs: 4px;
+  --blur-lg: 16px;
+  --focus-outline-offset: 3px;
+  --transition-duration: 210ms;
+  --transition-easing: ease;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --border-width-2: 2px;
+  --border-width-3: 3px;
+  --container-sm: 384px;
+  --container-2xl: 672px;
   --spacing-2: 8px;
   --spacing-4: 16px;
   --spacing-8: 32px;
   --spacing-32: 128px;
-
-  /* Typography */
-  --font-family-sans: 'Rubik', sans-serif;
+  --font-family-sans: 'Bricolage Grotesque', sans-serif;
   --font-weight-normal: 400;
   --font-weight-bold: 700;
   --font-size-base: 16px;
   --font-size-5xl: 48px;
   --letter-spacing-tight: -1.44px;
-
-  /* Radii */
-  --radius-sm: 4px;
-  --radius-md: 6px;
-
-  /* Border widths */
-  --border-width-2: 2px;
-  --border-width-3: 3px;
-
-  /* Containers */
-  --container-sm: 384px;
-  --container-2xl: 672px;
-
-  /* Blur / shadows */
-  --blur-none: 0px;
-  --blur-xs: 4px;
-  --blur-lg: 16px;
-
-  /* Focus */
-  --focus-outline-offset: 3px;
-
-  /* Transitions */
-  --transition-duration: 210ms;
-  --transition-easing: ease;
 }

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- 08: Curl tips — straight lines that curl at the ends, whimsical -->
+  <g fill="none" stroke="#1a1a1a" stroke-width="5" stroke-linecap="round">
+    <line x1="100" y1="95" x2="100" y2="155"/><!-- stem -->
+    <path d="M100,95 L100,38 Q100,28 108,30"/><!-- center curl right -->
+    <path d="M100,95 L62,44 Q55,38 52,46"/><!-- left inner curl -->
+    <path d="M100,95 L138,44 Q145,38 148,46"/><!-- right inner curl -->
+    <path d="M100,95 L42,68 Q34,65 34,73"/><!-- left outer curl -->
+    <path d="M100,95 L158,68 Q166,65 166,73"/><!-- right outer curl -->
+  </g>
+</svg>

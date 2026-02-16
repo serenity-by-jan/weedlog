@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Concept 10: Abstract geometric/faceted cannabis leaf — modern, techy, flat design -->
+  <defs>
+    <linearGradient id="g10a" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#A5D6A7"/>
+      <stop offset="100%" style="stop-color:#66BB6A"/>
+    </linearGradient>
+    <linearGradient id="g10b" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#66BB6A"/>
+      <stop offset="100%" style="stop-color:#43A047"/>
+    </linearGradient>
+    <linearGradient id="g10c" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#43A047"/>
+      <stop offset="100%" style="stop-color:#2E7D32"/>
+    </linearGradient>
+    <linearGradient id="g10d" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#A5D6A7"/>
+      <stop offset="100%" style="stop-color:#66BB6A"/>
+    </linearGradient>
+    <linearGradient id="g10e" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#66BB6A"/>
+      <stop offset="100%" style="stop-color:#43A047"/>
+    </linearGradient>
+  </defs>
+  <!-- Geometric leaflets as triangular/polygonal shapes -->
+  <!-- Center leaflet -->
+  <polygon points="100,20 110,75 100,95 90,75" fill="url(#g10b)"/>
+  <!-- Left inner -->
+  <polygon points="100,95 68,55 58,35 75,45 90,75" fill="url(#g10a)"/>
+  <!-- Left outer -->
+  <polygon points="100,95 75,80 50,70 48,55 68,65 90,82" fill="url(#g10c)"/>
+  <!-- Right inner -->
+  <polygon points="100,95 132,55 142,35 125,45 110,75" fill="url(#g10d)"/>
+  <!-- Right outer -->
+  <polygon points="100,95 125,80 150,70 152,55 132,65 110,82" fill="url(#g10e)"/>
+  <!-- Geometric stem -->
+  <polygon points="97,95 103,95 103,135 100,140 97,135" fill="#2E7D32"/>
+  <!-- Subtle grid lines for faceted look -->
+  <line x1="100" y1="20" x2="100" y2="95" stroke="#1B5E20" stroke-width="0.5" opacity="0.3"/>
+  <line x1="58" y1="35" x2="100" y2="95" stroke="#1B5E20" stroke-width="0.5" opacity="0.3"/>
+  <line x1="142" y1="35" x2="100" y2="95" stroke="#1B5E20" stroke-width="0.5" opacity="0.3"/>
+  <line x1="48" y1="55" x2="100" y2="95" stroke="#1B5E20" stroke-width="0.5" opacity="0.3"/>
+  <line x1="152" y1="55" x2="100" y2="95" stroke="#1B5E20" stroke-width="0.5" opacity="0.3"/>
+  <!-- Text -->
+  <text x="100" y="175" text-anchor="middle" font-family="Rubik, sans-serif" font-size="22" font-weight="700" fill="#2E7D32">WEEDLOG</text>
+</svg>

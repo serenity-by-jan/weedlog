@@ -1,0 +1,18 @@
+{
+  "font": {
+    "family": {
+      "sans": { "value": "'Bricolage Grotesque', sans-serif", "type": "fontFamily", "description": "Primary typeface for all UI" }
+    },
+    "weight": {
+      "normal": { "value": "400", "type": "fontWeight" },
+      "bold": { "value": "700", "type": "fontWeight" }
+    },
+    "size": {
+      "base": { "value": "16px", "type": "dimension", "description": "Base body text size" },
+      "5xl": { "value": "48px", "type": "dimension", "description": "Hero / display size" }
+    }
+  },
+  "letter-spacing": {
+    "tight": { "value": "-1.44px", "type": "dimension" }
+  }
+}

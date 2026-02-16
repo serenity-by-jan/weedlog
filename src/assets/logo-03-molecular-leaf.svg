@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Concept 3: Abstract molecular structure that subtly forms a leaf shape — science meets cannabis -->
+  <defs>
+    <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#81C784"/>
+      <stop offset="100%" style="stop-color:#1B5E20"/>
+    </linearGradient>
+  </defs>
+  <!-- Molecular bonds -->
+  <line x1="100" y1="30" x2="100" y2="65" stroke="#4CAF50" stroke-width="2.5" opacity="0.7"/>
+  <line x1="100" y1="65" x2="65" y2="90" stroke="#4CAF50" stroke-width="2.5" opacity="0.7"/>
+  <line x1="100" y1="65" x2="135" y2="90" stroke="#4CAF50" stroke-width="2.5" opacity="0.7"/>
+  <line x1="65" y1="90" x2="50" y2="125" stroke="#4CAF50" stroke-width="2.5" opacity="0.7"/>
+  <line x1="65" y1="90" x2="85" y2="120" stroke="#4CAF50" stroke-width="2.5" opacity="0.7"/>
+  <line x1="135" y1="90" x2="150" y2="125" stroke="#4CAF50" stroke-width="2.5" opacity="0.7"/>
+  <line x1="135" y1="90" x2="115" y2="120" stroke="#4CAF50" stroke-width="2.5" opacity="0.7"/>
+  <line x1="85" y1="120" x2="100" y2="150" stroke="#4CAF50" stroke-width="2.5" opacity="0.7"/>
+  <line x1="115" y1="120" x2="100" y2="150" stroke="#4CAF50" stroke-width="2.5" opacity="0.7"/>
+  <!-- Molecular nodes -->
+  <circle cx="100" cy="30" r="8" fill="url(#grad3)"/>
+  <circle cx="100" cy="65" r="10" fill="url(#grad3)"/>
+  <circle cx="65" cy="90" r="8" fill="url(#grad3)"/>
+  <circle cx="135" cy="90" r="8" fill="url(#grad3)"/>
+  <circle cx="50" cy="125" r="6" fill="#81C784"/>
+  <circle cx="85" cy="120" r="7" fill="url(#grad3)"/>
+  <circle cx="150" cy="125" r="6" fill="#81C784"/>
+  <circle cx="115" cy="120" r="7" fill="url(#grad3)"/>
+  <circle cx="100" cy="150" r="9" fill="url(#grad3)"/>
+  <!-- Stem -->
+  <line x1="100" y1="150" x2="100" y2="170" stroke="#2E7D32" stroke-width="3"/>
+  <!-- Text -->
+  <text x="100" y="193" text-anchor="middle" font-family="Rubik, sans-serif" font-size="20" font-weight="700" fill="#2E7D32">WEEDLOG</text>
+</svg>

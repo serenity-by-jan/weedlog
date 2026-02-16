@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- 02: Tilted leaf — classic 5-finger rotated ~20° for casual energy -->
+  <g fill="none" stroke="#1a1a1a" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" transform="rotate(-20, 100, 100)">
+    <line x1="100" y1="95" x2="100" y2="155"/>
+    <line x1="100" y1="95" x2="100" y2="28"/>
+    <line x1="100" y1="95" x2="62" y2="40"/>
+    <line x1="100" y1="95" x2="138" y2="40"/>
+    <line x1="100" y1="95" x2="38" y2="62"/>
+    <line x1="100" y1="95" x2="162" y2="62"/>
+  </g>
+</svg>

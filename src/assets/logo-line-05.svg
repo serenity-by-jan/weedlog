@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- 05: Curvy fingers — bold curves instead of straight lines, organic & warm -->
+  <g fill="none" stroke="#1a1a1a" stroke-width="6" stroke-linecap="round">
+    <path d="M100,155 L100,95"/><!-- stem -->
+    <path d="M100,95 Q98,60 100,28"/><!-- center, slight sway -->
+    <path d="M100,95 Q78,72 55,40"/><!-- inner left curve -->
+    <path d="M100,95 Q122,72 145,40"/><!-- inner right curve -->
+    <path d="M100,95 Q72,85 35,65"/><!-- outer left curve -->
+    <path d="M100,95 Q128,85 165,65"/><!-- outer right curve -->
+  </g>
+</svg>
