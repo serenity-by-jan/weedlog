@@ -1,0 +1,187 @@
+/* ================================================================== */
+/*  Reaction Chips                                                     */
+/* ================================================================== */
+
+.pv-rc-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--weedlog-spacing-2);
+}
+
+.pv-rc-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--weedlog-spacing-2) var(--weedlog-spacing-3);
+  border-radius: var(--weedlog-radius-full);
+  border: var(--weedlog-border-width-thin) solid var(--weedlog-color-border-default);
+  background: var(--weedlog-color-surface-primary);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: var(--weedlog-typography-label-font-size);
+  font-weight: var(--weedlog-typography-label-font-weight);
+  color: var(--weedlog-color-text-secondary);
+  line-height: var(--weedlog-typography-label-line-height);
+  position: relative;
+  overflow: hidden;
+  transition: border-color var(--weedlog-transition-fast),
+              background var(--weedlog-transition-fast),
+              color var(--weedlog-transition-fast),
+              transform var(--weedlog-transition-fast);
+}
+
+.pv-rc-wisps {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 200ms ease-out;
+}
+
+.pv-rc-chip:hover .pv-rc-wisps {
+  opacity: 1;
+}
+
+.pv-rc-wisp {
+  position: absolute;
+  bottom: 0;
+  height: var(--weedlog-spacing-4);
+  border-radius: var(--weedlog-radius-full);
+  opacity: 0;
+}
+
+.pv-rc-wisp:nth-child(1) {
+  left: 12%;
+  width: var(--weedlog-spacing-1);
+  background: var(--weedlog-color-brand-primary);
+  animation: pv-rc-wisp-fast 2.2s cubic-bezier(0.25, 0.1, 0.8, 1) infinite;
+  animation-delay: 0ms;
+}
+
+.pv-rc-wisp:nth-child(2) {
+  left: 28%;
+  width: calc(var(--weedlog-spacing-1) * 1.15);
+  background: linear-gradient(180deg, var(--weedlog-color-brand-primary), rgba(255, 255, 255, 0.7));
+  animation: pv-rc-wisp-slow 2.4s cubic-bezier(0.1, 0.5, 0.8, 0.25) infinite;
+  animation-delay: 150ms;
+}
+
+.pv-rc-wisp:nth-child(3) {
+  left: 42%;
+  width: calc(var(--weedlog-spacing-1) * 0.9);
+  background: var(--weedlog-color-brand-primary);
+  animation: pv-rc-wisp-fast 2s cubic-bezier(0.25, 0.1, 0.8, 1) infinite;
+  animation-delay: 320ms;
+}
+
+.pv-rc-wisp:nth-child(4) {
+  left: 58%;
+  width: calc(var(--weedlog-spacing-1) * 1.25);
+  background: linear-gradient(180deg, var(--weedlog-color-brand-primary), rgba(255, 255, 255, 0.8));
+  animation: pv-rc-wisp-slow 2.3s cubic-bezier(0.1, 0.5, 0.8, 0.25) infinite;
+  animation-delay: 200ms;
+}
+
+.pv-rc-wisp:nth-child(5) {
+  left: 72%;
+  width: calc(var(--weedlog-spacing-1) * 1.1);
+  background: var(--weedlog-color-brand-primary);
+  animation: pv-rc-wisp-fast 2.1s cubic-bezier(0.25, 0.1, 0.8, 1) infinite;
+  animation-delay: 420ms;
+}
+
+.pv-rc-chip--active .pv-rc-wisp {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.5));
+}
+
+@keyframes pv-rc-wisp-fast {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scaleX(1);
+  }
+  4% {
+    opacity: 0.16;
+  }
+  20% {
+    opacity: 0;
+    transform: translateY(calc(-1 * var(--weedlog-spacing-16))) scaleX(1.8);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(calc(-1 * var(--weedlog-spacing-20))) scaleX(2.5);
+  }
+}
+
+@keyframes pv-rc-wisp-slow {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scaleX(1);
+  }
+  35% {
+    opacity: 0.14;
+  }
+  20% {
+    opacity: 0;
+    transform: translateY(calc(-1 * var(--weedlog-spacing-16))) scaleX(1.8);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(calc(-1 * var(--weedlog-spacing-20))) scaleX(2.5);
+  }
+}
+
+.pv-rc-chip:hover {
+  border-color: var(--weedlog-color-border-strong);
+  color: var(--weedlog-color-text-primary);
+}
+
+.pv-rc-chip--active {
+  background: var(--weedlog-color-brand-primary);
+  border-color: var(--weedlog-color-brand-primary);
+  color: var(--weedlog-color-text-on-brand);
+}
+
+.pv-rc-chip--active:hover {
+  background: var(--weedlog-color-brand-primary-hover);
+  border-color: var(--weedlog-color-brand-primary-hover);
+  color: var(--weedlog-color-text-on-brand);
+}
+
+.pv-rc-chip:focus-visible {
+  outline: var(--weedlog-border-width-thick) solid var(--weedlog-color-interactive-focus);
+  outline-offset: var(--weedlog-focus-outline-offset);
+  animation: pv-focus-fade-in 200ms ease-out;
+}
+
+.pv-rc-chip:active {
+  transform: scale(0.97);
+  transition: transform 100ms ease-out;
+}
+
+.pv-rc-summary {
+  margin-top: var(--weedlog-spacing-4);
+  font-size: var(--weedlog-typography-body-sm-font-size);
+  color: var(--weedlog-color-text-muted);
+  line-height: var(--weedlog-typography-body-sm-line-height);
+}
+
+/* Animations */
+
+@keyframes pv-focus-fade-in {
+  from { outline-color: transparent; }
+  to { outline-color: var(--weedlog-color-interactive-focus); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pv-rc-chip:focus-visible,
+  .pv-rc-chip:active {
+    animation: none;
+  }
+
+  .pv-rc-chip:active {
+    transform: none;
+  }
+
+  .pv-rc-wisps {
+    display: none;
+  }
+}

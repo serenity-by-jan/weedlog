@@ -1,0 +1,193 @@
+/* ================================================================== */
+/*  Shared Animation Utilities for Preview Components                 */
+/* ================================================================== */
+
+/* Focus fade-in - used by all interactive elements */
+@keyframes pv-focus-fade-in {
+  from { outline-color: transparent; }
+  to { outline-color: var(--weedlog-color-interactive-focus); }
+}
+
+/* Shimmer - used by pressable elements on hover */
+@keyframes pv-shimmer {
+  100% { transform: translateX(100%); }
+}
+
+/* Wisp rise - for dark backgrounds (toasts, dark modals) */
+@keyframes pv-wisp-rise {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scaleX(1);
+  }
+  20% {
+    opacity: 0.15;
+  }
+  60% {
+    opacity: 0.08;
+    transform: translateY(calc(-1 * var(--weedlog-spacing-6))) scaleX(1.5);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(calc(-1 * var(--weedlog-spacing-8))) scaleX(2);
+  }
+}
+
+/* Wisp rise subtle - for light backgrounds (cards, modals, sections) */
+@keyframes pv-wisp-rise-subtle {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scaleX(1);
+  }
+  20% {
+    opacity: 0.06;
+  }
+  60% {
+    opacity: 0.03;
+    transform: translateY(calc(-1 * var(--weedlog-spacing-6))) scaleX(1.5);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(calc(-1 * var(--weedlog-spacing-8))) scaleX(2);
+  }
+}
+
+/* ================================================================== */
+/*  Pressable Base Classes                                             */
+/* ================================================================== */
+
+/* Base pressable element (buttons, pills, chips, etc.) */
+.pv-pressable {
+  position: relative;
+  overflow: hidden;
+  transition: background var(--weedlog-transition-fast),
+              transform var(--weedlog-transition-fast),
+              border-color var(--weedlog-transition-fast),
+              color var(--weedlog-transition-fast);
+}
+
+/* Shimmer pseudo-element for light backgrounds */
+.pv-pressable::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(22, 163, 74, 0.05),
+    transparent
+  );
+  transform: translateX(-100%);
+  pointer-events: none;
+}
+
+.pv-pressable:hover::before {
+  animation: pv-shimmer 600ms ease;
+}
+
+/* Press state - contract and hold while pressed */
+.pv-pressable:active {
+  transform: scale(0.97);
+  transition: transform 100ms ease-out;
+}
+
+/* Focus state */
+.pv-pressable:focus-visible {
+  outline: var(--weedlog-border-width-thick) solid var(--weedlog-color-interactive-focus);
+  outline-offset: var(--weedlog-focus-outline-offset);
+  animation: pv-focus-fade-in 200ms ease-out;
+}
+
+/* ================================================================== */
+/*  Wisp Container Base Classes                                        */
+/* ================================================================== */
+
+/* Wisps for dark backgrounds */
+.pv-wisps-dark {
+  position: absolute;
+  bottom: 0;
+  right: var(--weedlog-spacing-4);
+  width: var(--weedlog-spacing-16);
+  height: 100%;
+  pointer-events: none;
+}
+
+.pv-wisp-dark {
+  position: absolute;
+  bottom: 0;
+  width: var(--weedlog-spacing-1);
+  height: var(--weedlog-spacing-4);
+  background: var(--weedlog-color-text-inverse);
+  border-radius: var(--weedlog-radius-full);
+  opacity: 0;
+  animation: pv-wisp-rise 2s ease-out infinite;
+}
+
+.pv-wisp-dark:nth-child(1) {
+  left: 25%;
+  animation-delay: 0ms;
+}
+
+.pv-wisp-dark:nth-child(2) {
+  left: 50%;
+  animation-delay: 400ms;
+}
+
+.pv-wisp-dark:nth-child(3) {
+  left: 75%;
+  animation-delay: 800ms;
+}
+
+/* Wisps for light backgrounds */
+.pv-wisps-light {
+  position: absolute;
+  bottom: 0;
+  right: var(--weedlog-spacing-4);
+  width: var(--weedlog-spacing-16);
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+.pv-wisp-light {
+  position: absolute;
+  bottom: 0;
+  width: var(--weedlog-spacing-1);
+  height: var(--weedlog-spacing-4);
+  background: var(--weedlog-color-brand-primary);
+  opacity: 0.2;
+  border-radius: var(--weedlog-radius-full);
+  animation: pv-wisp-rise-subtle 2.5s ease-out infinite;
+}
+
+.pv-wisp-light:nth-child(1) {
+  left: 25%;
+  animation-delay: 0ms;
+}
+
+.pv-wisp-light:nth-child(2) {
+  left: 50%;
+  animation-delay: 500ms;
+}
+
+.pv-wisp-light:nth-child(3) {
+  left: 75%;
+  animation-delay: 1000ms;
+}
+
+/* ================================================================== */
+/*  Reduced Motion                                                     */
+/* ================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .pv-pressable:hover::before,
+  .pv-pressable:active,
+  .pv-pressable:focus-visible,
+  .pv-wisp-dark,
+  .pv-wisp-light {
+    animation: none;
+  }
+
+  .pv-pressable:active {
+    transform: none;
+  }
+}

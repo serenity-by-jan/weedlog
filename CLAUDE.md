@@ -43,7 +43,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Styling Conventions
 
 - **All visual CSS values must reference tokens from `src/tokens.css`** — no hardcoded colors, spacing, font sizes, radii, or border widths in component stylesheets. Only structural CSS values (e.g. `flex`, `100%`, `0`, `none`, `1`) remain as literals.
-- **Focus states:** Implement focus rings using `outline` + `outline-offset`, not pseudo-elements or extra DOM nodes. Use `var(--weedlog-border-width-thick)` for outline width, `var(--weedlog-color-interactive-focus)` for color, and `var(--weedlog-focus-outline-offset)` for offset. Apply only on `:focus-visible`. Include a subtle pulse animation on the outline color.
+- **Focus states:** Implement focus rings using `outline` + `outline-offset`, not pseudo-elements or extra DOM nodes. Use `var(--weedlog-border-width-thick)` for outline width, `var(--weedlog-color-interactive-focus)` for color, and `var(--weedlog-focus-outline-offset)` for offset. Apply only on `:focus-visible`. Include a 200ms fade-in animation (see `ANIMATIONS.md`).
+- **Animations:** Follow the standards defined in `ANIMATIONS.md`:
+  - **Pressable elements** (buttons, pills, chips): Shimmer on hover, scale down (0.97) on press
+  - **Temporary elements** (toasts, modals, popovers): Subtle smoke wisp animation in bottom right
+  - **All animations** must respect `prefers-reduced-motion: reduce`
 
 ## Design Token Workflow
 

@@ -1,0 +1,195 @@
+/* ================================================================== */
+/*  Expandable Section                                                 */
+/* ================================================================== */
+
+.pv-es-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--weedlog-spacing-2);
+  max-width: 600px;
+}
+
+.pv-es-item {
+  border: var(--weedlog-border-width-thin) solid var(--weedlog-color-border-default);
+  border-radius: var(--weedlog-radius-lg);
+  background: var(--weedlog-color-surface-primary);
+  overflow: hidden;
+}
+
+.pv-es-item--open {
+  border-color: var(--weedlog-color-border-strong);
+}
+
+.pv-es-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: var(--weedlog-spacing-4);
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+  gap: var(--weedlog-spacing-3);
+}
+
+.pv-es-header:focus-visible {
+  outline: var(--weedlog-border-width-thick) solid var(--weedlog-color-interactive-focus);
+  outline-offset: calc(-1 * var(--weedlog-focus-outline-offset));
+  animation: pv-focus-fade-in 200ms ease-out;
+}
+
+.pv-es-header-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--weedlog-spacing-1);
+  min-width: 0;
+}
+
+.pv-es-title {
+  font-size: var(--weedlog-typography-emphasis-font-size);
+  font-weight: var(--weedlog-typography-emphasis-font-weight);
+  color: var(--weedlog-color-text-primary);
+}
+
+.pv-es-preview {
+  font-size: var(--weedlog-typography-body-sm-font-size);
+  color: var(--weedlog-color-text-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pv-es-chevron {
+  flex-shrink: 0;
+  color: var(--weedlog-color-text-muted);
+  transition: transform var(--weedlog-transition-normal);
+}
+
+.pv-es-item--open .pv-es-chevron {
+  transform: rotate(180deg);
+}
+
+.pv-es-body {
+  padding: 0 var(--weedlog-spacing-4) var(--weedlog-spacing-4);
+}
+
+.pv-es-body[hidden] {
+  display: none;
+}
+
+/* Content variants */
+
+.pv-es-content-text {
+  font-size: var(--weedlog-typography-body-sm-font-size);
+  color: var(--weedlog-color-text-secondary);
+  line-height: var(--weedlog-typography-body-sm-line-height);
+  margin-bottom: var(--weedlog-spacing-3);
+}
+
+.pv-es-content-meta {
+  display: flex;
+  gap: var(--weedlog-spacing-4);
+  font-size: var(--weedlog-typography-caption-font-size);
+  color: var(--weedlog-color-text-muted);
+}
+
+.pv-es-session-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--weedlog-spacing-2);
+}
+
+.pv-es-session {
+  display: flex;
+  align-items: center;
+  gap: var(--weedlog-spacing-3);
+  padding: var(--weedlog-spacing-2) 0;
+  border-bottom: var(--weedlog-border-width-thin) solid var(--weedlog-color-border-subtle);
+}
+
+.pv-es-session:last-child {
+  border-bottom: none;
+}
+
+.pv-es-session-name {
+  flex: 1;
+  font-size: var(--weedlog-typography-body-sm-font-size);
+  font-weight: var(--weedlog-typography-emphasis-sm-font-weight);
+  color: var(--weedlog-color-text-primary);
+}
+
+.pv-es-session-rating {
+  font-size: var(--weedlog-typography-label-sm-font-size);
+  font-weight: var(--weedlog-typography-label-sm-font-weight);
+  color: var(--weedlog-color-brand-primary);
+}
+
+.pv-es-session-date {
+  font-size: var(--weedlog-typography-caption-font-size);
+  color: var(--weedlog-color-text-muted);
+}
+
+/* Terpene bars */
+
+.pv-es-terpene-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--weedlog-spacing-2);
+}
+
+.pv-es-terpene-row {
+  display: grid;
+  grid-template-columns: 100px 1fr 40px;
+  gap: var(--weedlog-spacing-2);
+  align-items: center;
+}
+
+.pv-es-terpene-name {
+  font-size: var(--weedlog-typography-body-sm-font-size);
+  color: var(--weedlog-color-text-primary);
+}
+
+.pv-es-terpene-bar-bg {
+  height: var(--weedlog-spacing-2);
+  background: var(--weedlog-color-bg-tertiary);
+  border-radius: var(--weedlog-radius-full);
+  overflow: hidden;
+}
+
+.pv-es-terpene-bar {
+  display: block;
+  height: 100%;
+  background: var(--weedlog-color-brand-primary);
+  border-radius: var(--weedlog-radius-full);
+  transition: width var(--weedlog-transition-normal);
+}
+
+.pv-es-terpene-val {
+  font-size: var(--weedlog-typography-caption-font-size);
+  color: var(--weedlog-color-text-muted);
+  text-align: right;
+}
+
+/* Animations */
+
+@keyframes pv-focus-fade-in {
+  from { outline-color: transparent; }
+  to { outline-color: var(--weedlog-color-interactive-focus); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pv-es-header:focus-visible {
+    animation: none;
+  }
+
+  .pv-es-chevron {
+    transition: none;
+  }
+
+  .pv-es-terpene-bar {
+    transition: none;
+  }
+}

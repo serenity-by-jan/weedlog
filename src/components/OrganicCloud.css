@@ -1,0 +1,133 @@
+/* ================================================================== */
+/*  Organic Cloud Animation                                             */
+/*  Official Weedlog wisp effect for pressable elements                */
+/* ================================================================== */
+
+/* Container for wisps — apply to a wrapper div inside pressable element */
+.organic-cloud {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 200ms ease-out;
+}
+
+/* Fade wisps in on parent hover */
+.pressable:hover .organic-cloud {
+  opacity: 1;
+}
+
+/* Individual wisp — base styles */
+.organic-cloud-wisp {
+  position: absolute;
+  bottom: 0;
+  border-radius: var(--weedlog-radius-full);
+  opacity: 0;
+  filter: blur(1.0px);
+}
+
+/* ========== Brand Green Wisps (Light Backgrounds) ========== */
+
+.organic-cloud-wisp--brand {
+  background: linear-gradient(
+    180deg,
+    var(--weedlog-color-brand-primary),
+    rgba(22, 163, 74, 0.3) 50%,
+    rgba(22, 163, 74, 0)
+  );
+}
+
+/* ========== Gray Wisps (Neutral/Shadow) ========== */
+
+.organic-cloud-wisp--gray {
+  background: linear-gradient(
+    180deg,
+    rgba(153, 153, 153, 0.65),
+    rgba(153, 153, 153, 0.2) 50%,
+    rgba(153, 153, 153, 0)
+  );
+}
+
+/* ========== White Wisps (Dark Backgrounds) ========== */
+
+.organic-cloud-wisp--white {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0)
+  );
+}
+
+/* ========== Animated Wisp Classes ========== */
+
+.organic-cloud-wisp--animate-a {
+  animation: organic-cloud-rise-a 2.3s ease-out infinite;
+}
+
+.organic-cloud-wisp--animate-b {
+  animation: organic-cloud-rise-b 3.7s ease-out infinite;
+}
+
+.organic-cloud-wisp--animate-c {
+  animation: organic-cloud-rise-c 2.7s ease-out infinite;
+}
+
+.organic-cloud-wisp--animate-d {
+  animation: organic-cloud-rise-d 4.3s ease-out infinite;
+}
+
+.organic-cloud-wisp--animate-e {
+  animation: organic-cloud-rise-e 3.2s ease-out infinite;
+}
+
+/* ========== Keyframe Animations ========== */
+
+@keyframes organic-cloud-rise-a {
+  0% { opacity: 0.05; transform: translateY(0); }
+  10% { opacity: 0.14; }
+  50% { opacity: 0.09; }
+  80% { opacity: 0; transform: translateY(-240px); }
+  100% { opacity: 0; transform: translateY(-300px); }
+}
+
+@keyframes organic-cloud-rise-b {
+  0% { opacity: 0.06; transform: translateY(0); }
+  12% { opacity: 0.12; }
+  48% { opacity: 0.08; }
+  80% { opacity: 0; transform: translateY(-240px); }
+  100% { opacity: 0; transform: translateY(-300px); }
+}
+
+@keyframes organic-cloud-rise-c {
+  0% { opacity: 0.04; transform: translateY(0); }
+  9% { opacity: 0.13; }
+  46% { opacity: 0.08; }
+  80% { opacity: 0; transform: translateY(-240px); }
+  100% { opacity: 0; transform: translateY(-300px); }
+}
+
+@keyframes organic-cloud-rise-d {
+  0% { opacity: 0.055; transform: translateY(0); }
+  14% { opacity: 0.11; }
+  52% { opacity: 0.07; }
+  80% { opacity: 0; transform: translateY(-240px); }
+  100% { opacity: 0; transform: translateY(-300px); }
+}
+
+@keyframes organic-cloud-rise-e {
+  0% { opacity: 0.065; transform: translateY(0); }
+  11% { opacity: 0.125; }
+  47% { opacity: 0.08; }
+  80% { opacity: 0; transform: translateY(-240px); }
+  100% { opacity: 0; transform: translateY(-300px); }
+}
+
+/* ========== Accessibility ========== */
+
+@media (prefers-reduced-motion: reduce) {
+  .organic-cloud,
+  .organic-cloud-wisp {
+    display: none;
+  }
+}

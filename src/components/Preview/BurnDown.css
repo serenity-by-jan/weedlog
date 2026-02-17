@@ -1,0 +1,252 @@
+/* ================================================================== */
+/*  Burn Down                                                          */
+/* ================================================================== */
+
+.pv-bd-demo {
+  max-width: 400px;
+}
+
+.pv-bd-label-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: var(--weedlog-spacing-3);
+}
+
+.pv-bd-label {
+  font-size: var(--weedlog-typography-emphasis-sm-font-size);
+  font-weight: var(--weedlog-typography-emphasis-sm-font-weight);
+  color: var(--weedlog-color-text-primary);
+}
+
+.pv-bd-pct {
+  font-size: var(--weedlog-typography-heading-sm-font-size);
+  font-weight: var(--weedlog-typography-heading-sm-font-weight);
+  color: var(--weedlog-color-brand-primary);
+}
+
+.pv-bd-joint {
+  margin-bottom: var(--weedlog-spacing-4);
+}
+
+.pv-bd-svg {
+  width: 100%;
+  height: auto;
+}
+
+.pv-bd-filter {
+  fill: var(--weedlog-color-strain-hybrid-fill);
+  stroke: var(--weedlog-color-strain-hybrid-text);
+  stroke-width: 1;
+}
+
+.pv-bd-paper {
+  fill: var(--weedlog-color-bg-secondary);
+  stroke: var(--weedlog-color-border-default);
+  stroke-width: 1;
+}
+
+.pv-bd-burnt {
+  fill: var(--weedlog-color-text-muted);
+  opacity: 0.4;
+}
+
+.pv-bd-cherry {
+  fill: var(--weedlog-color-semantic-error);
+  animation: pv-bd-glow 1s ease-in-out infinite alternate;
+}
+
+.pv-bd-tip {
+  fill: var(--weedlog-color-bg-tertiary);
+  stroke: var(--weedlog-color-border-subtle);
+  stroke-width: 1;
+}
+
+@keyframes pv-bd-glow {
+  from { opacity: 0.8; }
+  to { opacity: 1; filter: brightness(1.3); }
+}
+
+.pv-bd-controls {
+  display: flex;
+  flex-direction: column;
+  gap: var(--weedlog-spacing-3);
+}
+
+.pv-bd-slider {
+  width: 100%;
+  accent-color: var(--weedlog-color-brand-primary);
+  cursor: pointer;
+}
+
+.pv-bd-slider:focus-visible {
+  outline: var(--weedlog-border-width-thick) solid var(--weedlog-color-interactive-focus);
+  outline-offset: var(--weedlog-focus-outline-offset);
+  animation: pv-focus-fade-in 200ms ease-out;
+}
+
+.pv-bd-presets {
+  display: flex;
+  gap: var(--weedlog-spacing-2);
+}
+
+.pv-bd-preset {
+  padding: var(--weedlog-spacing-1) var(--weedlog-spacing-3);
+  border: var(--weedlog-border-width-thin) solid var(--weedlog-color-border-default);
+  border-radius: var(--weedlog-radius-full);
+  background: var(--weedlog-color-surface-primary);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: var(--weedlog-typography-caption-font-size);
+  color: var(--weedlog-color-text-secondary);
+  position: relative;
+  overflow: hidden;
+  transition: border-color var(--weedlog-transition-fast),
+              background var(--weedlog-transition-fast),
+              color var(--weedlog-transition-fast),
+              transform var(--weedlog-transition-fast);
+}
+
+.pv-bd-wisps {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 200ms ease-out;
+}
+
+.pv-bd-preset:hover .pv-bd-wisps {
+  opacity: 1;
+}
+
+.pv-bd-wisp {
+  position: absolute;
+  bottom: 0;
+  height: var(--weedlog-spacing-4);
+  border-radius: var(--weedlog-radius-full);
+  opacity: 0;
+}
+
+.pv-bd-wisp:nth-child(1) {
+  left: 12%;
+  width: var(--weedlog-spacing-1);
+  background: var(--weedlog-color-brand-primary);
+  animation: pv-bd-wisp-fast 2.2s cubic-bezier(0.25, 0.1, 0.8, 1) infinite;
+  animation-delay: 0ms;
+}
+
+.pv-bd-wisp:nth-child(2) {
+  left: 28%;
+  width: calc(var(--weedlog-spacing-1) * 1.15);
+  background: linear-gradient(180deg, var(--weedlog-color-brand-primary), rgba(255, 255, 255, 0.7));
+  animation: pv-bd-wisp-slow 2.4s cubic-bezier(0.1, 0.5, 0.8, 0.25) infinite;
+  animation-delay: 150ms;
+}
+
+.pv-bd-wisp:nth-child(3) {
+  left: 42%;
+  width: calc(var(--weedlog-spacing-1) * 0.9);
+  background: var(--weedlog-color-brand-primary);
+  animation: pv-bd-wisp-fast 2s cubic-bezier(0.25, 0.1, 0.8, 1) infinite;
+  animation-delay: 320ms;
+}
+
+.pv-bd-wisp:nth-child(4) {
+  left: 58%;
+  width: calc(var(--weedlog-spacing-1) * 1.25);
+  background: linear-gradient(180deg, var(--weedlog-color-brand-primary), rgba(255, 255, 255, 0.8));
+  animation: pv-bd-wisp-slow 2.3s cubic-bezier(0.1, 0.5, 0.8, 0.25) infinite;
+  animation-delay: 200ms;
+}
+
+.pv-bd-wisp:nth-child(5) {
+  left: 72%;
+  width: calc(var(--weedlog-spacing-1) * 1.1);
+  background: var(--weedlog-color-brand-primary);
+  animation: pv-bd-wisp-fast 2.1s cubic-bezier(0.25, 0.1, 0.8, 1) infinite;
+  animation-delay: 420ms;
+}
+
+@keyframes pv-bd-wisp-fast {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scaleX(1);
+  }
+  4% {
+    opacity: 0.16;
+  }
+  20% {
+    opacity: 0;
+    transform: translateY(calc(-1 * var(--weedlog-spacing-16))) scaleX(1.8);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(calc(-1 * var(--weedlog-spacing-20))) scaleX(2.5);
+  }
+}
+
+@keyframes pv-bd-wisp-slow {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scaleX(1);
+  }
+  35% {
+    opacity: 0.14;
+  }
+  20% {
+    opacity: 0;
+    transform: translateY(calc(-1 * var(--weedlog-spacing-16))) scaleX(1.8);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(calc(-1 * var(--weedlog-spacing-20))) scaleX(2.5);
+  }
+}
+
+.pv-bd-preset:hover {
+  border-color: var(--weedlog-color-border-strong);
+}
+
+.pv-bd-preset:active {
+  transform: scale(0.97);
+  transition: transform 100ms ease-out;
+}
+
+.pv-bd-preset--active {
+  background: var(--weedlog-color-brand-primary);
+  border-color: var(--weedlog-color-brand-primary);
+  color: var(--weedlog-color-text-on-brand);
+}
+
+.pv-bd-preset:focus-visible {
+  outline: var(--weedlog-border-width-thick) solid var(--weedlog-color-interactive-focus);
+  outline-offset: var(--weedlog-focus-outline-offset);
+  animation: pv-focus-fade-in 200ms ease-out;
+}
+
+/* Animations */
+
+@keyframes pv-focus-fade-in {
+  from { outline-color: transparent; }
+  to { outline-color: var(--weedlog-color-interactive-focus); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pv-bd-cherry {
+    animation: none;
+  }
+
+  .pv-bd-slider:focus-visible,
+  .pv-bd-preset:focus-visible,
+  .pv-bd-preset:active {
+    animation: none;
+  }
+
+  .pv-bd-preset:active {
+    transform: none;
+  }
+
+  .pv-bd-wisps {
+    display: none;
+  }
+}

@@ -1,0 +1,244 @@
+/* ================================================================== */
+/*  Flavor Wheel                                                       */
+/* ================================================================== */
+
+.pv-fw-demo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--weedlog-spacing-6);
+}
+
+.pv-fw-chart-wrap {
+  width: 280px;
+  height: 280px;
+}
+
+.pv-fw-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.pv-fw-segment {
+  fill: var(--weedlog-color-bg-tertiary);
+  stroke: var(--weedlog-color-surface-primary);
+  stroke-width: 2;
+  cursor: pointer;
+  transition: fill var(--weedlog-transition-fast), transform var(--weedlog-transition-fast);
+  transform-origin: center;
+}
+
+.pv-fw-segment:hover {
+  fill: var(--weedlog-color-border-default);
+  animation: pv-fw-pulse 600ms ease-in-out;
+}
+
+@keyframes pv-fw-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+}
+
+.pv-fw-segment--active {
+  fill: var(--weedlog-color-brand-primary);
+}
+
+.pv-fw-segment--active:hover {
+  fill: var(--weedlog-color-brand-primary-hover);
+}
+
+.pv-fw-segment:focus-visible {
+  outline: var(--weedlog-border-width-thick) solid var(--weedlog-color-interactive-focus);
+  outline-offset: var(--weedlog-focus-outline-offset);
+  animation: pv-focus-fade-in 200ms ease-out;
+}
+
+.pv-fw-label {
+  font-size: 9px;
+  font-family: var(--weedlog-typography-label-font-family);
+  font-weight: var(--weedlog-typography-label-font-weight);
+  fill: var(--weedlog-color-text-secondary);
+}
+
+.pv-fw-segment--active + text,
+.pv-fw-segment--active ~ .pv-fw-label {
+  fill: var(--weedlog-color-text-on-brand);
+}
+
+/* Selected chips */
+
+.pv-fw-selected {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--weedlog-spacing-2);
+}
+
+.pv-fw-selected-label {
+  font-size: var(--weedlog-typography-caption-font-size);
+  color: var(--weedlog-color-text-muted);
+}
+
+.pv-fw-selected-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--weedlog-spacing-2);
+  justify-content: center;
+}
+
+.pv-fw-selected-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--weedlog-spacing-1);
+  padding: var(--weedlog-spacing-1) var(--weedlog-spacing-3);
+  border-radius: var(--weedlog-radius-full);
+  border: var(--weedlog-border-width-thin) solid var(--weedlog-color-brand-primary);
+  background: var(--weedlog-color-semantic-success-subtle);
+  color: var(--weedlog-color-brand-primary);
+  font-family: inherit;
+  font-size: var(--weedlog-typography-label-sm-font-size);
+  font-weight: var(--weedlog-typography-label-sm-font-weight);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: background var(--weedlog-transition-fast),
+              border-color var(--weedlog-transition-fast),
+              color var(--weedlog-transition-fast),
+              transform var(--weedlog-transition-fast);
+}
+
+.pv-fw-wisps {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 200ms ease-out;
+}
+
+.pv-fw-selected-chip:hover .pv-fw-wisps {
+  opacity: 1;
+}
+
+.pv-fw-wisp {
+  position: absolute;
+  bottom: 0;
+  height: var(--weedlog-spacing-4);
+  border-radius: var(--weedlog-radius-full);
+  opacity: 0;
+}
+
+.pv-fw-wisp:nth-child(1) {
+  left: 12%;
+  width: var(--weedlog-spacing-1);
+  background: rgba(255, 255, 255, 0.8);
+  animation: pv-fw-wisp-fast 2.2s cubic-bezier(0.25, 0.1, 0.8, 1) infinite;
+  animation-delay: 0ms;
+}
+
+.pv-fw-wisp:nth-child(2) {
+  left: 28%;
+  width: calc(var(--weedlog-spacing-1) * 1.15);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), var(--weedlog-color-brand-primary));
+  animation: pv-fw-wisp-slow 2.4s cubic-bezier(0.1, 0.5, 0.8, 0.25) infinite;
+  animation-delay: 150ms;
+}
+
+.pv-fw-wisp:nth-child(3) {
+  left: 42%;
+  width: calc(var(--weedlog-spacing-1) * 0.9);
+  background: rgba(255, 255, 255, 0.8);
+  animation: pv-fw-wisp-fast 2s cubic-bezier(0.25, 0.1, 0.8, 1) infinite;
+  animation-delay: 320ms;
+}
+
+.pv-fw-wisp:nth-child(4) {
+  left: 58%;
+  width: calc(var(--weedlog-spacing-1) * 1.25);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), var(--weedlog-color-brand-primary));
+  animation: pv-fw-wisp-slow 2.3s cubic-bezier(0.1, 0.5, 0.8, 0.25) infinite;
+  animation-delay: 200ms;
+}
+
+.pv-fw-wisp:nth-child(5) {
+  left: 72%;
+  width: calc(var(--weedlog-spacing-1) * 1.1);
+  background: rgba(255, 255, 255, 0.8);
+  animation: pv-fw-wisp-fast 2.1s cubic-bezier(0.25, 0.1, 0.8, 1) infinite;
+  animation-delay: 420ms;
+}
+
+@keyframes pv-fw-wisp-fast {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scaleX(1);
+  }
+  4% {
+    opacity: 0.16;
+  }
+  20% {
+    opacity: 0;
+    transform: translateY(calc(-1 * var(--weedlog-spacing-16))) scaleX(1.8);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(calc(-1 * var(--weedlog-spacing-20))) scaleX(2.5);
+  }
+}
+
+@keyframes pv-fw-wisp-slow {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scaleX(1);
+  }
+  35% {
+    opacity: 0.14;
+  }
+  20% {
+    opacity: 0;
+    transform: translateY(calc(-1 * var(--weedlog-spacing-16))) scaleX(1.8);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(calc(-1 * var(--weedlog-spacing-20))) scaleX(2.5);
+  }
+}
+
+.pv-fw-selected-chip:hover {
+  background: var(--weedlog-color-semantic-error-subtle);
+  border-color: var(--weedlog-color-semantic-error);
+  color: var(--weedlog-color-semantic-error);
+}
+
+.pv-fw-selected-chip:active {
+  transform: scale(0.97);
+  transition: transform 100ms ease-out;
+}
+
+.pv-fw-selected-chip:focus-visible {
+  outline: var(--weedlog-border-width-thick) solid var(--weedlog-color-interactive-focus);
+  outline-offset: var(--weedlog-focus-outline-offset);
+  animation: pv-focus-fade-in 200ms ease-out;
+}
+
+/* Animations */
+
+@keyframes pv-focus-fade-in {
+  from { outline-color: transparent; }
+  to { outline-color: var(--weedlog-color-interactive-focus); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pv-fw-segment:focus-visible,
+  .pv-fw-selected-chip:focus-visible,
+  .pv-fw-selected-chip:active,
+  .pv-fw-segment:hover {
+    animation: none;
+  }
+
+  .pv-fw-selected-chip:active {
+    transform: none;
+  }
+
+  .pv-fw-wisps {
+    display: none;
+  }
+}

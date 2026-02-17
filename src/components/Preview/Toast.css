@@ -1,0 +1,179 @@
+/* ================================================================== */
+/*  Toast                                                              */
+/* ================================================================== */
+
+.pv-toast-demo {
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--weedlog-spacing-4);
+}
+
+.pv-toast-trigger {
+  padding: var(--weedlog-spacing-2) var(--weedlog-spacing-4);
+  border: var(--weedlog-border-width-thin) solid var(--weedlog-color-border-default);
+  border-radius: var(--weedlog-radius-md);
+  background: var(--weedlog-color-surface-primary);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: var(--weedlog-typography-label-font-size);
+  font-weight: var(--weedlog-typography-label-font-weight);
+  color: var(--weedlog-color-text-primary);
+  transition: background var(--weedlog-transition-fast);
+}
+
+.pv-toast-trigger:hover {
+  background: var(--weedlog-color-bg-tertiary);
+}
+
+.pv-toast-trigger:focus-visible {
+  outline: var(--weedlog-border-width-thick) solid var(--weedlog-color-interactive-focus);
+  outline-offset: var(--weedlog-focus-outline-offset);
+  animation: pv-focus-fade-in 200ms ease-out;
+}
+
+/* Toast notification */
+
+.pv-toast {
+  display: flex;
+  align-items: center;
+  gap: var(--weedlog-spacing-3);
+  padding: var(--weedlog-spacing-3) var(--weedlog-spacing-4);
+  border-radius: var(--weedlog-radius-lg);
+  background: var(--weedlog-color-bg-inverse);
+  color: var(--weedlog-color-text-inverse);
+  box-shadow: var(--weedlog-shadow-lg);
+  position: relative;
+  overflow: hidden;
+  animation: pv-toast-slide-in 300ms ease;
+}
+
+.pv-toast-content {
+  display: flex;
+  align-items: center;
+  gap: var(--weedlog-spacing-2);
+  flex: 1;
+}
+
+.pv-toast-icon {
+  flex-shrink: 0;
+  color: var(--weedlog-color-semantic-success);
+}
+
+.pv-toast-message {
+  font-size: var(--weedlog-typography-label-font-size);
+  font-weight: var(--weedlog-typography-label-font-weight);
+}
+
+.pv-toast-dismiss {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--weedlog-spacing-1);
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: var(--weedlog-color-text-inverse);
+  opacity: 0.6;
+  transition: opacity var(--weedlog-transition-fast);
+  border-radius: var(--weedlog-radius-sm);
+}
+
+.pv-toast-dismiss:hover {
+  opacity: 1;
+}
+
+.pv-toast-dismiss:focus-visible {
+  outline: var(--weedlog-border-width-thick) solid var(--weedlog-color-interactive-focus);
+  outline-offset: var(--weedlog-focus-outline-offset);
+  animation: pv-focus-fade-in 200ms ease-out;
+}
+
+/* Smoke wisps */
+
+.pv-toast-wisps {
+  position: absolute;
+  top: 0;
+  right: var(--weedlog-spacing-12);
+  width: var(--weedlog-spacing-16);
+  height: 100%;
+  pointer-events: none;
+}
+
+.pv-toast-wisp {
+  position: absolute;
+  bottom: 50%;
+  width: var(--weedlog-spacing-1);
+  height: var(--weedlog-spacing-4);
+  background: var(--weedlog-color-text-inverse);
+  border-radius: var(--weedlog-radius-full);
+  opacity: 0;
+  animation: pv-toast-wisp-rise 2s ease-out infinite;
+}
+
+.pv-toast-wisp--1 {
+  left: 25%;
+  animation-delay: 0ms;
+}
+
+.pv-toast-wisp--2 {
+  left: 50%;
+  animation-delay: 400ms;
+}
+
+.pv-toast-wisp--3 {
+  left: 75%;
+  animation-delay: 800ms;
+}
+
+/* Animations */
+
+@keyframes pv-focus-fade-in {
+  from { outline-color: transparent; }
+  to { outline-color: var(--weedlog-color-interactive-focus); }
+}
+
+@keyframes pv-toast-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(var(--weedlog-spacing-4));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pv-toast-wisp-rise {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scaleX(1);
+  }
+  20% {
+    opacity: 0.15;
+  }
+  60% {
+    opacity: 0.08;
+    transform: translateY(calc(-1 * var(--weedlog-spacing-6))) scaleX(1.5);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(calc(-1 * var(--weedlog-spacing-8))) scaleX(2);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pv-toast {
+    animation: none;
+  }
+
+  .pv-toast-wisp {
+    animation: none;
+  }
+
+  .pv-toast-trigger:focus-visible,
+  .pv-toast-dismiss:focus-visible {
+    animation: none;
+  }
+}

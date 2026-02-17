@@ -1,0 +1,204 @@
+/* ================================================================== */
+/*  Preview — Layout                                                   */
+/* ================================================================== */
+
+.pv-layout {
+  display: flex;
+  min-height: 100%;
+  background: var(--weedlog-color-bg-primary);
+  color: var(--weedlog-color-text-primary);
+  font-family: var(--weedlog-typography-body-font-family);
+}
+
+.pv-main {
+  flex: 1;
+  min-width: 0;
+  max-width: var(--weedlog-container-lg);
+  margin: 0 auto;
+  padding: var(--weedlog-spacing-8) var(--weedlog-spacing-6);
+}
+
+/* ================================================================== */
+/*  Sticky side navigation                                             */
+/* ================================================================== */
+
+.pv-nav {
+  position: sticky;
+  top: var(--weedlog-spacing-8);
+  align-self: flex-start;
+  width: 180px;
+  flex-shrink: 0;
+  padding: var(--weedlog-spacing-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--weedlog-spacing-1);
+}
+
+.pv-nav-logo {
+  color: var(--weedlog-color-brand-primary);
+  padding: var(--weedlog-spacing-1) var(--weedlog-spacing-3);
+  margin-bottom: var(--weedlog-spacing-3);
+}
+
+.pv-nav-item {
+  display: block;
+  padding: var(--weedlog-spacing-1) var(--weedlog-spacing-3);
+  font-size: var(--weedlog-typography-body-sm-font-size);
+  font-weight: var(--weedlog-typography-body-font-weight);
+  color: var(--weedlog-color-text-secondary);
+  text-decoration: none;
+  border-left: var(--weedlog-border-width-medium) solid transparent;
+  border-radius: 0 var(--weedlog-radius-sm) var(--weedlog-radius-sm) 0;
+  transition: color var(--weedlog-transition-fast), border-color var(--weedlog-transition-fast);
+  cursor: pointer;
+  background: none;
+  border-right: none;
+  border-top: none;
+  border-bottom: none;
+  text-align: left;
+  font-family: inherit;
+  line-height: var(--weedlog-typography-body-sm-line-height);
+}
+
+.pv-nav-item:hover {
+  color: var(--weedlog-color-text-primary);
+}
+
+.pv-nav-item--active {
+  color: var(--weedlog-color-brand-primary);
+  font-weight: var(--weedlog-typography-label-font-weight);
+  border-left-color: var(--weedlog-color-brand-primary);
+}
+
+.pv-nav-item:focus-visible {
+  outline: var(--weedlog-border-width-thick) solid var(--weedlog-color-interactive-focus);
+  outline-offset: var(--weedlog-focus-outline-offset);
+  animation: pv-focus-fade-in 200ms ease-out;
+}
+
+/* ================================================================== */
+/*  Header                                                             */
+/* ================================================================== */
+
+.pv-header {
+  margin-bottom: var(--weedlog-spacing-12);
+}
+
+.pv-title {
+  font-size: var(--weedlog-typography-display-font-size);
+  font-weight: var(--weedlog-typography-heading-font-weight);
+  letter-spacing: var(--weedlog-typography-heading-letter-spacing);
+  line-height: var(--weedlog-typography-heading-line-height);
+}
+
+.pv-subtitle {
+  margin-top: var(--weedlog-spacing-2);
+  font-size: var(--weedlog-typography-body-lg-font-size);
+  color: var(--weedlog-color-text-secondary);
+  line-height: var(--weedlog-typography-body-line-height);
+}
+
+/* ================================================================== */
+/*  Sections (shared)                                                  */
+/* ================================================================== */
+
+.pv-section {
+  margin-bottom: var(--weedlog-spacing-16);
+}
+
+.pv-section-title {
+  font-size: var(--weedlog-typography-caption-font-size);
+  font-weight: var(--weedlog-typography-label-font-weight);
+  color: var(--weedlog-color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: var(--weedlog-typography-overline-letter-spacing);
+  margin-bottom: var(--weedlog-spacing-2);
+}
+
+.pv-section-desc {
+  font-size: var(--weedlog-typography-body-sm-font-size);
+  color: var(--weedlog-color-text-secondary);
+  line-height: var(--weedlog-typography-body-line-height);
+  margin-bottom: var(--weedlog-spacing-6);
+  max-width: 600px;
+}
+
+.pv-demo-area {
+  padding: var(--weedlog-spacing-6);
+  border: var(--weedlog-border-width-thin) solid var(--weedlog-color-border-default);
+  border-radius: var(--weedlog-radius-lg);
+  background: var(--weedlog-color-bg-secondary);
+}
+
+/* ================================================================== */
+/*  Shared animations                                                  */
+/* ================================================================== */
+
+/* Focus fade-in */
+@keyframes pv-focus-fade-in {
+  from { outline-color: transparent; }
+  to { outline-color: var(--weedlog-color-interactive-focus); }
+}
+
+/* Shimmer effect for hover states */
+@keyframes pv-shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* Gentle float */
+@keyframes pv-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-2px); }
+}
+
+/* Scale on press */
+@keyframes pv-press {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.97); }
+  100% { transform: scale(1); }
+}
+
+/* Ripple expand */
+@keyframes pv-ripple {
+  0% {
+    transform: scale(0);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+/* Success particle pop */
+@keyframes pv-particle-pop {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--tx), var(--ty)) scale(0);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pv-nav-item:focus-visible {
+    animation: none;
+  }
+}
+
+/* ================================================================== */
+/*  Responsive                                                         */
+/* ================================================================== */
+
+@media (max-width: 768px) {
+  .pv-nav {
+    display: none;
+  }
+
+  .pv-main {
+    padding: var(--weedlog-spacing-4);
+  }
+}

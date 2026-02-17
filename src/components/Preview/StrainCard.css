@@ -1,0 +1,119 @@
+/* ================================================================== */
+/*  Strain Card                                                        */
+/* ================================================================== */
+
+.pv-sc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--weedlog-spacing-4);
+}
+
+.pv-sc-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--weedlog-spacing-3);
+  padding: var(--weedlog-spacing-4);
+  border-radius: var(--weedlog-radius-lg);
+  border: var(--weedlog-border-width-thin) solid var(--weedlog-color-border-default);
+  border-left: var(--weedlog-border-width-thick) solid;
+  background: var(--weedlog-color-surface-primary);
+  box-shadow: var(--weedlog-shadow-sm);
+  transition: box-shadow var(--weedlog-transition-fast), transform var(--weedlog-transition-fast);
+  cursor: pointer;
+}
+
+.pv-sc-card:hover {
+  box-shadow: var(--weedlog-shadow-md);
+  animation: pv-sc-float 2s ease-in-out infinite;
+}
+
+@keyframes pv-sc-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-2px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pv-sc-card:hover {
+    animation: none;
+    transform: none;
+  }
+}
+
+.pv-sc-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--weedlog-spacing-2);
+}
+
+.pv-sc-name {
+  font-size: var(--weedlog-typography-emphasis-font-size);
+  font-weight: var(--weedlog-typography-emphasis-font-weight);
+  line-height: var(--weedlog-typography-emphasis-line-height);
+  color: var(--weedlog-color-text-primary);
+}
+
+.pv-sc-type-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--weedlog-spacing-1) var(--weedlog-spacing-2);
+  border-radius: var(--weedlog-radius-full);
+  font-size: var(--weedlog-typography-tag-font-size);
+  font-weight: var(--weedlog-typography-tag-font-weight);
+  line-height: var(--weedlog-typography-tag-line-height);
+  white-space: nowrap;
+  text-transform: capitalize;
+}
+
+.pv-sc-desc {
+  font-size: var(--weedlog-typography-body-sm-font-size);
+  color: var(--weedlog-color-text-secondary);
+  line-height: var(--weedlog-typography-body-sm-line-height);
+}
+
+.pv-sc-stats {
+  display: flex;
+  gap: var(--weedlog-spacing-4);
+}
+
+.pv-sc-stat {
+  display: flex;
+  align-items: baseline;
+  gap: var(--weedlog-spacing-1);
+}
+
+.pv-sc-stat-label {
+  font-size: var(--weedlog-typography-caption-font-size);
+  font-weight: var(--weedlog-typography-label-font-weight);
+  color: var(--weedlog-color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: var(--weedlog-typography-overline-letter-spacing);
+}
+
+.pv-sc-stat-value {
+  font-size: var(--weedlog-typography-emphasis-sm-font-size);
+  font-weight: var(--weedlog-typography-emphasis-sm-font-weight);
+  color: var(--weedlog-color-text-primary);
+}
+
+.pv-sc-flavors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--weedlog-spacing-1);
+}
+
+.pv-sc-flavor {
+  display: inline-flex;
+  padding: var(--weedlog-spacing-1) var(--weedlog-spacing-2);
+  border-radius: var(--weedlog-radius-full);
+  background: var(--weedlog-color-bg-tertiary);
+  font-size: var(--weedlog-typography-tag-font-size);
+  color: var(--weedlog-color-text-secondary);
+  line-height: var(--weedlog-typography-tag-line-height);
+}
+
+@media (max-width: 768px) {
+  .pv-sc-grid {
+    grid-template-columns: 1fr;
+  }
+}

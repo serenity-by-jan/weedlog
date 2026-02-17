@@ -1,0 +1,192 @@
+/* ================================================================== */
+/*  Inline Selectors                                                   */
+/* ================================================================== */
+
+.pv-is-demo {
+  max-width: 600px;
+}
+
+.pv-is-prose {
+  font-size: var(--weedlog-typography-body-lg-font-size);
+  line-height: 2.2;
+  color: var(--weedlog-color-text-primary);
+}
+
+/* Dropdown trigger */
+
+.pv-is-dropdown-wrap {
+  position: relative;
+  display: inline-flex;
+  vertical-align: baseline;
+}
+
+.pv-is-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--weedlog-spacing-1);
+  padding: var(--weedlog-spacing-1) var(--weedlog-spacing-2);
+  border: none;
+  border-bottom: var(--weedlog-border-width-medium) solid var(--weedlog-color-brand-primary);
+  border-radius: 0;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: var(--weedlog-color-brand-primary);
+  font-weight: var(--weedlog-typography-emphasis-font-weight);
+  transition: border-color var(--weedlog-transition-fast);
+}
+
+.pv-is-trigger:hover {
+  border-bottom-color: var(--weedlog-color-brand-primary-hover);
+}
+
+.pv-is-trigger:focus-visible {
+  outline: var(--weedlog-border-width-thick) solid var(--weedlog-color-interactive-focus);
+  outline-offset: var(--weedlog-focus-outline-offset);
+  animation: pv-focus-fade-in 200ms ease-out;
+}
+
+.pv-is-trigger:active .pv-is-chevron {
+  animation: pv-is-bounce 300ms ease-out;
+}
+
+.pv-is-trigger-text {
+  white-space: nowrap;
+}
+
+.pv-is-chevron {
+  flex-shrink: 0;
+  transition: transform var(--weedlog-transition-fast);
+}
+
+.pv-is-trigger[aria-expanded="true"] .pv-is-chevron {
+  transform: rotate(180deg);
+}
+
+/* Dropdown menu */
+
+.pv-is-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: var(--weedlog-z-dropdown);
+  margin-top: var(--weedlog-spacing-1);
+  padding: var(--weedlog-spacing-1) 0;
+  background: var(--weedlog-color-surface-elevated);
+  border: var(--weedlog-border-width-thin) solid var(--weedlog-color-border-default);
+  border-radius: var(--weedlog-radius-md);
+  box-shadow: var(--weedlog-shadow-md);
+  list-style: none;
+  min-width: 140px;
+  animation: pv-is-dropdown-enter 150ms ease-out;
+}
+
+@keyframes pv-is-dropdown-enter {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.pv-is-option {
+  display: block;
+  width: 100%;
+  padding: var(--weedlog-spacing-2) var(--weedlog-spacing-3);
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: var(--weedlog-typography-body-sm-font-size);
+  color: var(--weedlog-color-text-primary);
+  text-align: left;
+  transition: background var(--weedlog-transition-fast);
+}
+
+.pv-is-option:hover {
+  background: var(--weedlog-color-bg-secondary);
+}
+
+.pv-is-option:focus-visible {
+  outline: var(--weedlog-border-width-thick) solid var(--weedlog-color-interactive-focus);
+  outline-offset: calc(-1 * var(--weedlog-focus-outline-offset));
+  animation: pv-focus-fade-in 200ms ease-out;
+}
+
+[aria-selected="true"] > .pv-is-option {
+  color: var(--weedlog-color-brand-primary);
+  font-weight: var(--weedlog-typography-emphasis-font-weight);
+}
+
+/* Inline slider */
+
+.pv-is-slider-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--weedlog-spacing-2);
+  vertical-align: middle;
+}
+
+.pv-is-slider {
+  width: 100px;
+  accent-color: var(--weedlog-color-brand-primary);
+  cursor: pointer;
+}
+
+.pv-is-slider:focus-visible {
+  outline: var(--weedlog-border-width-thick) solid var(--weedlog-color-interactive-focus);
+  outline-offset: var(--weedlog-focus-outline-offset);
+  animation: pv-focus-fade-in 200ms ease-out;
+}
+
+.pv-is-slider-value {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--weedlog-spacing-6);
+  padding: var(--weedlog-spacing-1);
+  border-radius: var(--weedlog-radius-sm);
+  background: var(--weedlog-color-brand-primary);
+  color: var(--weedlog-color-text-on-brand);
+  font-size: var(--weedlog-typography-label-sm-font-size);
+  font-weight: var(--weedlog-typography-label-sm-font-weight);
+  line-height: var(--weedlog-typography-label-sm-line-height);
+  transition: transform var(--weedlog-transition-fast);
+}
+
+.pv-is-slider:active + .pv-is-slider-value {
+  animation: pv-is-value-pop 200ms ease-out;
+}
+
+@keyframes pv-is-value-pop {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+/* Animations */
+
+@keyframes pv-focus-fade-in {
+  from { outline-color: transparent; }
+  to { outline-color: var(--weedlog-color-interactive-focus); }
+}
+
+@keyframes pv-is-bounce {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pv-is-trigger:focus-visible,
+  .pv-is-option:focus-visible,
+  .pv-is-slider:focus-visible,
+  .pv-is-trigger:active .pv-is-chevron,
+  .pv-is-dropdown,
+  .pv-is-slider:active + .pv-is-slider-value {
+    animation: none;
+  }
+}

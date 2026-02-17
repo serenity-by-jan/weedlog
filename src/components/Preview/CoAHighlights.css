@@ -1,0 +1,185 @@
+/* ================================================================== */
+/*  CoA Highlights                                                     */
+/* ================================================================== */
+
+.pv-coa-demo {
+  display: flex;
+  gap: var(--weedlog-spacing-8);
+  flex-wrap: wrap;
+}
+
+.pv-coa-stats {
+  display: flex;
+  flex-direction: column;
+  gap: var(--weedlog-spacing-4);
+  min-width: 200px;
+}
+
+.pv-coa-stat-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--weedlog-spacing-2);
+  padding: var(--weedlog-spacing-4);
+  border: var(--weedlog-border-width-thin) solid var(--weedlog-color-border-default);
+  border-radius: var(--weedlog-radius-lg);
+  background: var(--weedlog-color-surface-primary);
+}
+
+.pv-coa-stat-label {
+  font-size: var(--weedlog-typography-overline-font-size);
+  font-weight: var(--weedlog-typography-overline-font-weight);
+  letter-spacing: var(--weedlog-typography-overline-letter-spacing);
+  text-transform: uppercase;
+  color: var(--weedlog-color-text-muted);
+}
+
+.pv-coa-stat-value {
+  font-size: var(--weedlog-typography-heading-font-size);
+  font-weight: var(--weedlog-typography-heading-font-weight);
+  color: var(--weedlog-color-text-primary);
+  animation: pv-coa-value-count-in 600ms ease-out;
+}
+
+@keyframes pv-coa-value-count-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.pv-coa-stat-bar-bg {
+  height: var(--weedlog-spacing-2);
+  background: var(--weedlog-color-bg-tertiary);
+  border-radius: var(--weedlog-radius-full);
+  overflow: hidden;
+}
+
+.pv-coa-stat-bar {
+  display: block;
+  height: 100%;
+  background: var(--weedlog-color-brand-primary);
+  border-radius: var(--weedlog-radius-full);
+  animation: pv-coa-bar-fill 800ms ease-out;
+}
+
+@keyframes pv-coa-bar-fill {
+  from {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.pv-coa-stat-bar--cbd {
+  background: var(--weedlog-color-semantic-info);
+}
+
+/* Radar chart */
+
+.pv-coa-chart-area {
+  flex: 1;
+  min-width: 240px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--weedlog-spacing-4);
+}
+
+.pv-coa-chart-title {
+  font-size: var(--weedlog-typography-emphasis-sm-font-size);
+  font-weight: var(--weedlog-typography-emphasis-sm-font-weight);
+  color: var(--weedlog-color-text-primary);
+}
+
+.pv-coa-radar {
+  width: 200px;
+  height: 200px;
+}
+
+.pv-coa-grid-ring {
+  fill: none;
+  stroke: var(--weedlog-color-border-subtle);
+  stroke-width: 0.5;
+}
+
+.pv-coa-axis {
+  stroke: var(--weedlog-color-border-default);
+  stroke-width: 0.5;
+}
+
+.pv-coa-data {
+  fill: var(--weedlog-color-brand-primary);
+  fill-opacity: 0.15;
+  stroke: var(--weedlog-color-brand-primary);
+  stroke-width: 1.5;
+  animation: pv-coa-radar-draw 1000ms ease-out;
+}
+
+@keyframes pv-coa-radar-draw {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.pv-coa-dot {
+  fill: var(--weedlog-color-brand-primary);
+}
+
+.pv-coa-label {
+  font-size: 9px;
+  font-family: var(--weedlog-typography-code-font-family);
+  fill: var(--weedlog-color-text-muted);
+}
+
+/* Legend */
+
+.pv-coa-terpene-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--weedlog-spacing-2) var(--weedlog-spacing-4);
+  justify-content: center;
+}
+
+.pv-coa-legend-item {
+  display: flex;
+  align-items: center;
+  gap: var(--weedlog-spacing-1);
+}
+
+.pv-coa-legend-dot {
+  width: var(--weedlog-spacing-2);
+  height: var(--weedlog-spacing-2);
+  border-radius: var(--weedlog-radius-full);
+  background: var(--weedlog-color-brand-primary);
+  flex-shrink: 0;
+}
+
+.pv-coa-legend-name {
+  font-size: var(--weedlog-typography-caption-font-size);
+  color: var(--weedlog-color-text-primary);
+}
+
+.pv-coa-legend-val {
+  font-size: var(--weedlog-typography-caption-font-size);
+  color: var(--weedlog-color-text-muted);
+  font-family: var(--weedlog-typography-code-font-family);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pv-coa-stat-value,
+  .pv-coa-stat-bar,
+  .pv-coa-data {
+    animation: none;
+  }
+}

@@ -1,0 +1,69 @@
+/* ================================================================== */
+/*  Strain Lineage                                                     */
+/* ================================================================== */
+
+.pv-lin-demo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--weedlog-spacing-8);
+}
+
+.pv-lin-tree {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 200px;
+}
+
+.pv-lin-parents {
+  display: flex;
+  gap: var(--weedlog-spacing-6);
+}
+
+.pv-lin-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--weedlog-spacing-1);
+  padding: var(--weedlog-spacing-2) var(--weedlog-spacing-4);
+  border-radius: var(--weedlog-radius-lg);
+  border: var(--weedlog-border-width-thin) solid var(--weedlog-color-border-default);
+  background: var(--weedlog-color-surface-primary);
+}
+
+.pv-lin-node--parent {
+  background: var(--weedlog-color-bg-tertiary);
+}
+
+.pv-lin-node--child {
+  border-color: var(--weedlog-color-brand-primary);
+  border-width: var(--weedlog-border-width-medium);
+}
+
+.pv-lin-node-name {
+  font-size: var(--weedlog-typography-label-font-size);
+  font-weight: var(--weedlog-typography-label-font-weight);
+  color: var(--weedlog-color-text-primary);
+}
+
+.pv-lin-node-type {
+  font-size: var(--weedlog-typography-tag-font-size);
+  color: var(--weedlog-color-text-muted);
+  text-transform: capitalize;
+}
+
+.pv-lin-connector {
+  width: 200px;
+  height: 40px;
+}
+
+.pv-lin-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.pv-lin-line {
+  stroke: var(--weedlog-color-border-strong);
+  stroke-width: 1.5;
+  fill: none;
+}

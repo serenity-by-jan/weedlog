@@ -1,0 +1,249 @@
+/* ================================================================== */
+/*  Social Elements                                                    */
+/* ================================================================== */
+
+.pv-soc-demo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--weedlog-spacing-8);
+}
+
+/* Share card */
+
+.pv-soc-share-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--weedlog-spacing-4);
+  padding: var(--weedlog-spacing-4);
+  border: var(--weedlog-border-width-thin) solid var(--weedlog-color-border-default);
+  border-radius: var(--weedlog-radius-lg);
+  background: var(--weedlog-color-surface-primary);
+  max-width: 320px;
+}
+
+.pv-soc-share-title {
+  font-size: var(--weedlog-typography-emphasis-sm-font-size);
+  font-weight: var(--weedlog-typography-emphasis-sm-font-weight);
+  color: var(--weedlog-color-text-primary);
+}
+
+.pv-soc-share-preview {
+  display: flex;
+  align-items: center;
+  gap: var(--weedlog-spacing-3);
+  padding: var(--weedlog-spacing-3);
+  background: var(--weedlog-color-bg-tertiary);
+  border-radius: var(--weedlog-radius-md);
+}
+
+.pv-soc-share-strain {
+  font-size: var(--weedlog-typography-emphasis-font-size);
+  font-weight: var(--weedlog-typography-emphasis-font-weight);
+  color: var(--weedlog-color-text-primary);
+  flex: 1;
+}
+
+.pv-soc-share-type {
+  font-size: var(--weedlog-typography-tag-font-size);
+  color: var(--weedlog-color-text-muted);
+  text-transform: capitalize;
+}
+
+.pv-soc-share-thc {
+  font-size: var(--weedlog-typography-label-sm-font-size);
+  font-weight: var(--weedlog-typography-label-sm-font-weight);
+  color: var(--weedlog-color-brand-primary);
+}
+
+.pv-soc-share-btn {
+  padding: var(--weedlog-spacing-2) var(--weedlog-spacing-4);
+  border: none;
+  border-radius: var(--weedlog-radius-md);
+  background: var(--weedlog-color-brand-primary);
+  color: var(--weedlog-color-text-on-brand);
+  font-family: inherit;
+  font-size: var(--weedlog-typography-label-font-size);
+  font-weight: var(--weedlog-typography-label-font-weight);
+  cursor: pointer;
+  transition: background var(--weedlog-transition-fast), transform var(--weedlog-transition-fast);
+  position: relative;
+  overflow: hidden;
+}
+
+.pv-soc-share-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transform: translateX(-100%);
+}
+
+.pv-soc-share-btn:hover {
+  background: var(--weedlog-color-brand-primary-hover);
+}
+
+.pv-soc-share-btn:hover::before {
+  animation: pv-soc-shimmer 600ms ease;
+}
+
+.pv-soc-share-btn--shared {
+  background: var(--weedlog-color-semantic-success);
+  animation: pv-soc-success-pop 400ms ease;
+}
+
+@keyframes pv-soc-shimmer {
+  100% { transform: translateX(100%); }
+}
+
+@keyframes pv-soc-success-pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.pv-soc-share-btn:focus-visible {
+  outline: var(--weedlog-border-width-thick) solid var(--weedlog-color-interactive-focus);
+  outline-offset: var(--weedlog-focus-outline-offset);
+  animation: pv-focus-fade-in 200ms ease-out;
+}
+
+/* Status indicators */
+
+.pv-soc-statuses {
+  display: flex;
+  flex-direction: column;
+  gap: var(--weedlog-spacing-3);
+}
+
+.pv-soc-status {
+  display: flex;
+  align-items: center;
+  gap: var(--weedlog-spacing-3);
+  padding: var(--weedlog-spacing-3);
+  border-radius: var(--weedlog-radius-md);
+  background: var(--weedlog-color-surface-primary);
+  border: var(--weedlog-border-width-thin) solid var(--weedlog-color-border-default);
+  max-width: 320px;
+}
+
+.pv-soc-status--active {
+  border-color: var(--weedlog-color-brand-primary);
+}
+
+.pv-soc-status-dot {
+  width: var(--weedlog-spacing-2);
+  height: var(--weedlog-spacing-2);
+  border-radius: var(--weedlog-radius-full);
+  background: var(--weedlog-color-text-muted);
+  flex-shrink: 0;
+}
+
+.pv-soc-status-dot--active {
+  background: var(--weedlog-color-semantic-success);
+  animation: pv-soc-pulse 2s ease-in-out infinite;
+}
+
+.pv-soc-status-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--weedlog-spacing-1);
+}
+
+.pv-soc-status-label {
+  font-size: var(--weedlog-typography-caption-font-size);
+  color: var(--weedlog-color-text-muted);
+}
+
+.pv-soc-status-strain {
+  font-size: var(--weedlog-typography-emphasis-sm-font-size);
+  font-weight: var(--weedlog-typography-emphasis-sm-font-weight);
+  color: var(--weedlog-color-text-primary);
+}
+
+@keyframes pv-soc-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* Shared list */
+
+.pv-soc-shared-list {
+  max-width: 400px;
+}
+
+.pv-soc-list-title {
+  font-size: var(--weedlog-typography-emphasis-sm-font-size);
+  font-weight: var(--weedlog-typography-emphasis-sm-font-weight);
+  color: var(--weedlog-color-text-primary);
+  margin-bottom: var(--weedlog-spacing-3);
+}
+
+.pv-soc-friends {
+  display: flex;
+  flex-direction: column;
+  gap: var(--weedlog-spacing-2);
+}
+
+.pv-soc-friend {
+  display: flex;
+  align-items: center;
+  gap: var(--weedlog-spacing-3);
+  padding: var(--weedlog-spacing-3);
+  border: var(--weedlog-border-width-thin) solid var(--weedlog-color-border-default);
+  border-radius: var(--weedlog-radius-md);
+  background: var(--weedlog-color-surface-primary);
+}
+
+.pv-soc-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--weedlog-spacing-8);
+  height: var(--weedlog-spacing-8);
+  border-radius: var(--weedlog-radius-full);
+  background: var(--weedlog-color-bg-tertiary);
+  font-size: var(--weedlog-typography-label-font-size);
+  font-weight: var(--weedlog-typography-label-font-weight);
+  color: var(--weedlog-color-text-secondary);
+  flex-shrink: 0;
+}
+
+.pv-soc-friend-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--weedlog-spacing-1);
+  flex: 1;
+}
+
+.pv-soc-friend-name {
+  font-size: var(--weedlog-typography-emphasis-sm-font-size);
+  font-weight: var(--weedlog-typography-emphasis-sm-font-weight);
+  color: var(--weedlog-color-text-primary);
+}
+
+.pv-soc-friend-strain {
+  font-size: var(--weedlog-typography-caption-font-size);
+  color: var(--weedlog-color-text-secondary);
+}
+
+.pv-soc-friend-time {
+  font-size: var(--weedlog-typography-caption-font-size);
+  color: var(--weedlog-color-text-muted);
+}
+
+/* Animations */
+
+@keyframes pv-focus-fade-in {
+  from { outline-color: transparent; }
+  to { outline-color: var(--weedlog-color-interactive-focus); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pv-soc-status-dot--active {
+    animation: none;
+  }
+
+  .pv-soc-share-btn:focus-visible {
+    animation: none;
+  }
+}
