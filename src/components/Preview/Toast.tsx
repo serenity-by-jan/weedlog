@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import './Toast.css';
+import OrganicCloud from '../OrganicCloud';
 
 export default function ToastDemo() {
   const [visible, setVisible] = useState(false);
@@ -33,11 +34,7 @@ export default function ToastDemo() {
             </svg>
             <span className="pv-toast-message">{message}</span>
           </div>
-          <div className="pv-toast-wisps" aria-hidden="true">
-            <span className="pv-toast-wisp pv-toast-wisp--1" />
-            <span className="pv-toast-wisp pv-toast-wisp--2" />
-            <span className="pv-toast-wisp pv-toast-wisp--3" />
-          </div>
+          <OrganicCloud count={14} mode="dark" size="sm" trigger="always" />
           <button
             className="pv-toast-dismiss"
             onClick={() => setVisible(false)}

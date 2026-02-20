@@ -90,42 +90,6 @@
   animation: pv-focus-fade-in 200ms ease-out;
 }
 
-/* Smoke wisps */
-
-.pv-toast-wisps {
-  position: absolute;
-  top: 0;
-  right: var(--weedlog-spacing-12);
-  width: var(--weedlog-spacing-16);
-  height: 100%;
-  pointer-events: none;
-}
-
-.pv-toast-wisp {
-  position: absolute;
-  bottom: 50%;
-  width: var(--weedlog-spacing-1);
-  height: var(--weedlog-spacing-4);
-  background: var(--weedlog-color-text-inverse);
-  border-radius: var(--weedlog-radius-full);
-  opacity: 0;
-  animation: pv-toast-wisp-rise 2s ease-out infinite;
-}
-
-.pv-toast-wisp--1 {
-  left: 25%;
-  animation-delay: 0ms;
-}
-
-.pv-toast-wisp--2 {
-  left: 50%;
-  animation-delay: 400ms;
-}
-
-.pv-toast-wisp--3 {
-  left: 75%;
-  animation-delay: 800ms;
-}
 
 /* Animations */
 
@@ -145,34 +109,13 @@
   }
 }
 
-@keyframes pv-toast-wisp-rise {
-  0% {
-    opacity: 0;
-    transform: translateY(0) scaleX(1);
-  }
-  20% {
-    opacity: 0.15;
-  }
-  60% {
-    opacity: 0.08;
-    transform: translateY(calc(-1 * var(--weedlog-spacing-6))) scaleX(1.5);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(calc(-1 * var(--weedlog-spacing-8))) scaleX(2);
-  }
-}
 
 @media (prefers-reduced-motion: reduce) {
   .pv-toast {
     animation: none;
   }
 
-  .pv-toast-wisp {
-    animation: none;
-  }
-
-  .pv-toast-trigger:focus-visible,
+.pv-toast-trigger:focus-visible,
   .pv-toast-dismiss:focus-visible {
     animation: none;
   }
