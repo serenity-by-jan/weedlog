@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import './NavEnhancement.css';
+import OrganicCloud from '../OrganicCloud';
 
 const HISTORY = [
   { label: 'Blue Dream', path: '/strain/blue-dream' },
@@ -58,13 +59,7 @@ export default function NavEnhancementDemo() {
             aria-haspopup={showHistory ? 'true' : undefined}
             aria-expanded={showHistory}
           >
-            <div className="pv-ne-wisps" aria-hidden="true">
-              <span className="pv-ne-wisp" />
-              <span className="pv-ne-wisp" />
-              <span className="pv-ne-wisp" />
-              <span className="pv-ne-wisp" />
-              <span className="pv-ne-wisp" />
-            </div>
+            <OrganicCloud size="sm" mode="light" trigger="hover" count={15} />
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
               <path d="M13 4l-6 6 6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
@@ -86,13 +81,7 @@ export default function NavEnhancementDemo() {
                       setShowHistory(false);
                     }}
                   >
-                    <div className="pv-ne-history-wisps" aria-hidden="true">
-                      <span className="pv-ne-history-wisp" />
-                      <span className="pv-ne-history-wisp" />
-                      <span className="pv-ne-history-wisp" />
-                      <span className="pv-ne-history-wisp" />
-                      <span className="pv-ne-history-wisp" />
-                    </div>
+                    <OrganicCloud size="sm" mode="light" trigger="hover" count={18} />
                     {item.label}
                     <span className="pv-ne-history-path">{item.path}</span>
                   </button>

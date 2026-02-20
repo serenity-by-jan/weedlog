@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './AliasDisplay.css';
+import OrganicCloud from '../OrganicCloud';
 import { mockStrains } from './mockData';
 
 function CopyButton({ text }: { text: string }) {
@@ -21,13 +22,7 @@ function CopyButton({ text }: { text: string }) {
       onClick={handleCopy}
       aria-label={`Copy "${text}" to clipboard`}
     >
-      <div className="pv-ad-wisps" aria-hidden="true">
-        <span className="pv-ad-wisp" />
-        <span className="pv-ad-wisp" />
-        <span className="pv-ad-wisp" />
-        <span className="pv-ad-wisp" />
-        <span className="pv-ad-wisp" />
-      </div>
+      <OrganicCloud size="sm" mode="light" trigger="hover" count={12} />
       {copied ? (
         <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
           <path d="M3 8l3 3 7-7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />

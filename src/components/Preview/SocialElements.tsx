@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './SocialElements.css';
+import OrganicCloud from '../OrganicCloud';
 import { mockStrains, mockSessions } from './mockData';
 
 function ShareCard() {
@@ -20,6 +21,7 @@ function ShareCard() {
         className={`pv-soc-share-btn ${shared ? 'pv-soc-share-btn--shared' : ''}`}
         onClick={() => setShared((s) => !s)}
       >
+        <OrganicCloud size="sm" mode="dark" trigger="hover" count={18} />
         {shared ? 'Shared!' : 'Share with friends'}
       </button>
     </div>

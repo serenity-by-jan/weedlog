@@ -21,6 +21,8 @@
   font-weight: var(--weedlog-typography-label-font-weight);
   color: var(--weedlog-color-text-primary);
   transition: background var(--weedlog-transition-fast);
+  position: relative;
+  overflow: hidden;
 }
 
 .pv-toast-trigger:hover {

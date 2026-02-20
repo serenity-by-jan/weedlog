@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './SessionLogger.css';
+import OrganicCloud from '../OrganicCloud';
 import { mockStrains, CONSUMPTION_METHODS, METHOD_LABELS, REACTIONS, type ConsumptionMethod } from './mockData';
 
 export default function SessionLoggerDemo() {
@@ -58,13 +59,7 @@ export default function SessionLoggerDemo() {
                 aria-checked={method === m}
                 onClick={() => setMethod(m)}
               >
-                <div className="pv-sl-wisps" aria-hidden="true">
-                  <span className="pv-sl-wisp" />
-                  <span className="pv-sl-wisp" />
-                  <span className="pv-sl-wisp" />
-                  <span className="pv-sl-wisp" />
-                  <span className="pv-sl-wisp" />
-                </div>
+                <OrganicCloud size="sm" mode={method === m ? 'dark' : 'light'} trigger="hover" count={15} />
                 {METHOD_LABELS[m]}
               </button>
             ))}
@@ -102,13 +97,7 @@ export default function SessionLoggerDemo() {
                 aria-pressed={reactions.has(r)}
                 onClick={() => toggleReaction(r)}
               >
-                <div className="pv-sl-wisps" aria-hidden="true">
-                  <span className="pv-sl-wisp" />
-                  <span className="pv-sl-wisp" />
-                  <span className="pv-sl-wisp" />
-                  <span className="pv-sl-wisp" />
-                  <span className="pv-sl-wisp" />
-                </div>
+                <OrganicCloud size="sm" mode="light" trigger="hover" count={15} />
                 {r}
               </button>
             ))}
@@ -133,13 +122,7 @@ export default function SessionLoggerDemo() {
 
       <div className="pv-sl-footer">
         <button className="pv-sl-submit" onClick={handleLog}>
-          <div className="pv-sl-submit-wisps" aria-hidden="true">
-            <span className="pv-sl-submit-wisp" />
-            <span className="pv-sl-submit-wisp" />
-            <span className="pv-sl-submit-wisp" />
-            <span className="pv-sl-submit-wisp" />
-            <span className="pv-sl-submit-wisp" />
-          </div>
+          <OrganicCloud size="sm" mode="dark" trigger="hover" count={18} />
           Log {selectedStrain?.name ?? 'session'}
         </button>
         {logged && <span className="pv-sl-logged" role="status">Logged!</span>}

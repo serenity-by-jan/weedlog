@@ -22,6 +22,7 @@ export default function ToastDemo() {
   return (
     <div className="pv-toast-demo">
       <button className="pv-toast-trigger" onClick={showToast}>
+        <OrganicCloud size="sm" mode="light" trigger="hover" count={18} />
         Show toast
       </button>
 
@@ -34,7 +35,6 @@ export default function ToastDemo() {
             </svg>
             <span className="pv-toast-message">{message}</span>
           </div>
-          <OrganicCloud count={14} mode="dark" size="sm" trigger="always" />
           <button
             className="pv-toast-dismiss"
             onClick={() => setVisible(false)}

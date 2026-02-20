@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './ReactionChips.css';
+import OrganicCloud from '../OrganicCloud';
 import { REACTIONS } from './mockData';
 
 export default function ReactionChipsDemo() {
@@ -29,13 +30,7 @@ export default function ReactionChipsDemo() {
               onClick={() => toggle(r)}
               aria-pressed={isActive}
             >
-              <div className="pv-rc-wisps" aria-hidden="true">
-                <span className="pv-rc-wisp" />
-                <span className="pv-rc-wisp" />
-                <span className="pv-rc-wisp" />
-                <span className="pv-rc-wisp" />
-                <span className="pv-rc-wisp" />
-              </div>
+              <OrganicCloud size="sm" mode={isActive ? 'dark' : 'light'} trigger="hover" count={18} />
               {r}
             </button>
           );

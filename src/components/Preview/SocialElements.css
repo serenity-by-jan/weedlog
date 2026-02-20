@@ -70,29 +70,13 @@
   overflow: hidden;
 }
 
-.pv-soc-share-btn::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-  transform: translateX(-100%);
-}
-
 .pv-soc-share-btn:hover {
   background: var(--weedlog-color-brand-primary-hover);
-}
-
-.pv-soc-share-btn:hover::before {
-  animation: pv-soc-shimmer 600ms ease;
 }
 
 .pv-soc-share-btn--shared {
   background: var(--weedlog-color-semantic-success);
   animation: pv-soc-success-pop 400ms ease;
-}
-
-@keyframes pv-soc-shimmer {
-  100% { transform: translateX(100%); }
 }
 
 @keyframes pv-soc-success-pop {

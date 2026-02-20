@@ -32,6 +32,7 @@
   font-family: inherit;
   text-align: left;
   gap: var(--weedlog-spacing-3);
+  overflow: hidden;
 }
 
 .pv-es-header:focus-visible {

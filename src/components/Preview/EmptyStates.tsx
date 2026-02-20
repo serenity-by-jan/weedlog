@@ -1,4 +1,5 @@
 import './EmptyStates.css';
+import OrganicCloud from '../OrganicCloud';
 
 function LeafIcon() {
   return (
@@ -28,13 +29,7 @@ function EmptyState({ title, description, cta }: EmptyStateProps) {
       <h4 className="pv-empty-title">{title}</h4>
       <p className="pv-empty-desc">{description}</p>
       <button className="pv-empty-cta">
-        <div className="pv-empty-wisps" aria-hidden="true">
-          <span className="pv-empty-wisp" />
-          <span className="pv-empty-wisp" />
-          <span className="pv-empty-wisp" />
-          <span className="pv-empty-wisp" />
-          <span className="pv-empty-wisp" />
-        </div>
+        <OrganicCloud size="sm" mode="dark" trigger="hover" count={18} />
         {cta}
       </button>
     </div>

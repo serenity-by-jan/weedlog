@@ -59,102 +59,6 @@
               transform var(--weedlog-transition-fast);
 }
 
-.pv-ad-wisps {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 200ms ease-out;
-}
-
-.pv-ad-copy:hover .pv-ad-wisps {
-  opacity: 1;
-}
-
-.pv-ad-wisp {
-  position: absolute;
-  bottom: 0;
-  height: var(--weedlog-spacing-4);
-  border-radius: var(--weedlog-radius-full);
-  opacity: 0;
-}
-
-.pv-ad-wisp:nth-child(1) {
-  left: 12%;
-  width: var(--weedlog-spacing-1);
-  background: var(--weedlog-color-brand-primary);
-  animation: pv-ad-wisp-fast 2.2s cubic-bezier(0.25, 0.1, 0.8, 1) infinite;
-  animation-delay: 0ms;
-}
-
-.pv-ad-wisp:nth-child(2) {
-  left: 28%;
-  width: calc(var(--weedlog-spacing-1) * 1.15);
-  background: linear-gradient(180deg, var(--weedlog-color-brand-primary), rgba(255, 255, 255, 0.7));
-  animation: pv-ad-wisp-slow 2.4s cubic-bezier(0.1, 0.5, 0.8, 0.25) infinite;
-  animation-delay: 150ms;
-}
-
-.pv-ad-wisp:nth-child(3) {
-  left: 42%;
-  width: calc(var(--weedlog-spacing-1) * 0.9);
-  background: var(--weedlog-color-brand-primary);
-  animation: pv-ad-wisp-fast 2s cubic-bezier(0.25, 0.1, 0.8, 1) infinite;
-  animation-delay: 320ms;
-}
-
-.pv-ad-wisp:nth-child(4) {
-  left: 58%;
-  width: calc(var(--weedlog-spacing-1) * 1.25);
-  background: linear-gradient(180deg, var(--weedlog-color-brand-primary), rgba(255, 255, 255, 0.8));
-  animation: pv-ad-wisp-slow 2.3s cubic-bezier(0.1, 0.5, 0.8, 0.25) infinite;
-  animation-delay: 200ms;
-}
-
-.pv-ad-wisp:nth-child(5) {
-  left: 72%;
-  width: calc(var(--weedlog-spacing-1) * 1.1);
-  background: var(--weedlog-color-brand-primary);
-  animation: pv-ad-wisp-fast 2.1s cubic-bezier(0.25, 0.1, 0.8, 1) infinite;
-  animation-delay: 420ms;
-}
-
-@keyframes pv-ad-wisp-fast {
-  0% {
-    opacity: 0;
-    transform: translateY(0) scaleX(1);
-  }
-  4% {
-    opacity: 0.16;
-  }
-  20% {
-    opacity: 0;
-    transform: translateY(calc(-1 * var(--weedlog-spacing-16))) scaleX(1.8);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(calc(-1 * var(--weedlog-spacing-20))) scaleX(2.5);
-  }
-}
-
-@keyframes pv-ad-wisp-slow {
-  0% {
-    opacity: 0;
-    transform: translateY(0) scaleX(1);
-  }
-  35% {
-    opacity: 0.14;
-  }
-  20% {
-    opacity: 0;
-    transform: translateY(calc(-1 * var(--weedlog-spacing-16))) scaleX(1.8);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(calc(-1 * var(--weedlog-spacing-20))) scaleX(2.5);
-  }
-}
-
 .pv-ad-copy:hover {
   color: var(--weedlog-color-brand-primary);
 }
@@ -189,9 +93,5 @@
 
   .pv-ad-copy:active {
     transform: none;
-  }
-
-  .pv-ad-wisps {
-    display: none;
   }
 }
